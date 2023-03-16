@@ -1,35 +1,65 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { useState } from "react";
+import styled from "styled-components";
+import Root from "./routes/Root.jsx";
+import ErrorPage from "./routes/ErrorPage.jsx";
+import Home from "./components/Home";
+import About from "./components/About";
+import Portfolio from "./components/Portfolio";
+import Contact from "./components/Contact";
 
-function App() {
-  const [count, setCount] = useState(0)
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/portfolio",
+        element: <Portfolio />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+    ],
+  },
+]);
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+const Container = styled.div`
+  height: 100vh;
+  background: #16203a;
+`;
+
+const Nav = styled.nav`
+  width: 200px;
+  height: 100vh;
+`;
+
+const List = styled.ul`
+  width: 200px;
+  height: 100vh;
+`;
+
+const ListItem = styled.li`
+  width: 200px;
+  height: 100vh;
+`;
+
+const Link = styled.a`
+  width: 200px;
+  height: 100vh;
+`;
+
+export default function App() {
+  return <RouterProvider router={router} />;
 }
-
-export default App
