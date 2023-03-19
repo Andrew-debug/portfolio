@@ -259,13 +259,13 @@ export default function Root({ isNavOpen, setisNavOpen }) {
       <Nav isNavOpen={isNavOpen}>
         <NavLinks>
           <NavLinksUnit isNavOpen={isNavOpen}>
-            <NavLink to="/">
+            <NavLink onClick={() => setisNavOpen(false)} to="/">
               <NavLinkSpanTitle>Home</NavLinkSpanTitle>
               <NavLinkSpanContent>Introduction</NavLinkSpanContent>
             </NavLink>
           </NavLinksUnit>
           <NavLinksUnit isNavOpen={isNavOpen}>
-            <NavLink to="/about">
+            <NavLink onClick={() => setisNavOpen(false)} to="/about">
               <NavLinkSpanTitle>About</NavLinkSpanTitle>
               <NavLinkSpanContent>
                 Professional skills and experience
@@ -273,14 +273,17 @@ export default function Root({ isNavOpen, setisNavOpen }) {
             </NavLink>
           </NavLinksUnit>
           <NavLinksUnit isNavOpen={isNavOpen}>
-            <NavLink to="/portfolio">
+            <NavLink onClick={() => setisNavOpen(false)} to="/portfolio">
               <NavLinkSpanTitle>Portfolio</NavLinkSpanTitle>
               <NavLinkSpanContent>
                 Some of the projects I worked on
               </NavLinkSpanContent>
             </NavLink>
           </NavLinksUnit>
-          <NavLinksUnit isNavOpen={isNavOpen}>
+          <NavLinksUnit
+            onClick={() => setisNavOpen(false)}
+            isNavOpen={isNavOpen}
+          >
             <NavLink to="/contact">
               <NavLinkSpanTitle>Contact</NavLinkSpanTitle>
               <NavLinkSpanContent>Get in touch</NavLinkSpanContent>
