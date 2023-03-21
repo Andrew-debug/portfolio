@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import GetInTouch from "./GetInTouch";
 import StackList from "./StackList";
 import WorkPlaceComponent from "./WorkPlaceComponent";
 
@@ -57,44 +58,48 @@ const Tech = styled.div`
 
 export default function About() {
   return (
-    <Container>
-      <AboutWrap
-        style={{
-          background:
-            "linear-gradient(45deg, rgb(28, 40, 73) 0%, rgb(36, 52, 95) 100%)",
-        }}
-      >
-        <Left>
-          <h1>About Andrii Yatsenko</h1>
-          <p>
-            I am a 27 years old passionate Fullstack Web Developer based in
-            Stockholm, Sweden who enjoys building software. Very positive and
-            highly motivated person with over 9 years of experience in building
-            beautiful websites, web and mobile applications with a stronger
-            focus on the frontend technologies.
-          </p>
-          <p>
-            Right now I work as a Software Engineer at Nordnet Bank AB, trying
-            to make investing and saving money easier for all people in the
-            Nordic countries.
-          </p>
-          <p>
-            Outside work I really enjoy cooking delicious food, playing chess
-            and video games, rewatching Marvel movies and lifting heavy weights.
-          </p>
-        </Left>
-        <Right />
-      </AboutWrap>
-      <TechWorkWrap>
-        <Tech>
-          <h2>Most used technologies</h2>
-          {/* <div
+    <>
+      <Container>
+        <AboutWrap
+          style={{
+            background:
+              "linear-gradient(45deg, rgb(28, 40, 73) 0%, rgb(36, 52, 95) 100%)",
+          }}
+        >
+          <Left>
+            <h1>About Andrii Yatsenko</h1>
+            <p>
+              I am a 27 years old passionate Fullstack Web Developer based in
+              Stockholm, Sweden who enjoys building software. Very positive and
+              highly motivated person with over 9 years of experience in
+              building beautiful websites, web and mobile applications with a
+              stronger focus on the frontend technologies.
+            </p>
+            <p>
+              Right now I work as a Software Engineer at Nordnet Bank AB, trying
+              to make investing and saving money easier for all people in the
+              Nordic countries.
+            </p>
+            <p>
+              Outside work I really enjoy cooking delicious food, playing chess
+              and video games, rewatching Marvel movies and lifting heavy
+              weights.
+            </p>
+          </Left>
+          <Right />
+        </AboutWrap>
+        <TechWorkWrap>
+          <Tech>
+            <h2>Most used technologies</h2>
+            {/* <div
             style={{ width: "100%", height: 300, backgroundColor: "black" }}
           ></div> */}
-          <StackList />
-        </Tech>
-        <WorkPlaceComponent />
-      </TechWorkWrap>
-    </Container>
+            <StackList />
+          </Tech>
+          <WorkPlaceComponent />
+        </TechWorkWrap>
+      </Container>
+      <GetInTouch />
+    </>
   );
 }

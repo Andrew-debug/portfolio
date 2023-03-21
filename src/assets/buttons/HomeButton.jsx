@@ -8,18 +8,18 @@ const ButtonSpan = styled.span`
   height: 100%;
   background: transparent;
   z-index: -1;
-  border: 3px solid rgb(226, 120, 108);
+  border: 2px solid rgb(226, 120, 108);
   &:before {
     content: "";
     display: block;
     position: absolute;
     width: 8%;
     height: 500%;
-    background: rgb(22, 32, 58);
+    background: inherit;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-60deg);
-    transition: all 0.5s;
+    transition: all 0.3s;
   }
 `;
 

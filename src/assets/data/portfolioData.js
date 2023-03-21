@@ -8,7 +8,8 @@ export default [
   {
     id: 0,
     title: "zalupa",
-    description: "zalupa zalupnaya",
+    description:
+      "Lorem ipsum dolor, sit amet  expedita exercitationem recusandae aut dolor tempora aperiam itaque possimus at, cupiditate earum, quae repudiandae ",
     techUsed: ["html", "css"],
     categories: ["react", "javascript"],
     image: reactJs,
@@ -16,7 +17,8 @@ export default [
   {
     id: 1,
     title: "zalupa1",
-    description: "zalupa zalupnaya",
+    description:
+      "Lorem ipsum dolor, sit amet  expedita exercitationem recusandae aut dolor tempora aperiam itaque possimus at, cupiditate earum, quae repudiandae ",
     techUsed: ["react", "javascript"],
     categories: ["react"],
     image: react,
@@ -24,7 +26,8 @@ export default [
   {
     id: 2,
     title: "zalupa2",
-    description: "zalupa zalupnaya",
+    description:
+      "Lorem ipsum dolor, sit amet  expedita exercitationem recusandae aut dolor tempora aperiam itaque possimus at, cupiditate earum, quae repudiandae ",
     techUsed: ["html", "css"],
     categories: ["react", "typescript"],
     image: reactTs,
@@ -32,7 +35,8 @@ export default [
   {
     id: 3,
     title: "zalupa3",
-    description: "zalupa zalupnaya",
+    description:
+      "Lorem ipsum dolor, sit amet  expedita exercitationem recusandae aut dolor tempora aperiam itaque possimus at, cupiditate earum, quae repudiandae ",
     techUsed: ["html", "css"],
     categories: ["typescript"],
     image: ts,
@@ -40,7 +44,8 @@ export default [
   {
     id: 4,
     title: "zalupa4",
-    description: "zalupa zalupnaya",
+    description:
+      "Lorem ipsum dolor, sit amet  expedita exercitationem recusandae aut dolor tempora aperiam itaque possimus at, cupiditate earum, quae repudiandae ",
     techUsed: ["html", "css"],
     categories: ["javascript"],
     image: js,
@@ -48,7 +53,8 @@ export default [
   {
     id: 5,
     title: "zalupa5",
-    description: "zalupa zalupnaya",
+    description:
+      "Lorem ipsum dolor, sit amet  expedita exercitationem recusandae aut dolor tempora aperiam itaque possimus at, cupiditate earum, quae repudiandae ",
     techUsed: ["html", "css"],
     categories: ["javascript"],
     image: js,
@@ -56,7 +62,8 @@ export default [
   {
     id: 6,
     title: "zalupa6",
-    description: "zalupa zalupnaya",
+    description:
+      "Lorem ipsum dolor, sit amet  expedita exercitationem recusandae aut dolor tempora aperiam itaque possimus at, cupiditate earum, quae repudiandae ",
     techUsed: ["html", "css"],
     categories: ["javascript"],
     image: js,

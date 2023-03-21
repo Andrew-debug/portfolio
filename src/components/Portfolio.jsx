@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import data from "../assets/data/portfolioData.js";
+import GetInTouch from "./GetInTouch.jsx";
+import PortfolioCard from "./PortfolioCard.jsx";
 
 const Container = styled.div``;
 
@@ -83,23 +85,11 @@ export default function Portfolio() {
     },
   });
 
-  useEffect(() => {
-    if (Object.values(filter.categories).indexOf(true) === -1) {
-      setfilter({
-        categories: {
-          all: true,
-          react: false,
-          typescript: false,
-          javascript: false,
-        },
-      });
-    }
-  }, [filter]);
-
   function filterFunc() {
     const selectedFilterTags = Object.entries(filter.categories).filter(
-      ([key, value]) => value !== false
+      ([key, value]) => value === true
     );
+
     if (!filter.categories.all) {
       const filteredData = [];
       const filteredKeys = [];
@@ -172,11 +162,14 @@ export default function Portfolio() {
                           },
                         });
                       } else {
+                        const next = {
+                          ...filter.categories,
+                          [key]: !value,
+                        };
                         setfilter({
                           categories: {
-                            ...filter.categories,
-                            all: false,
-                            [key]: !value,
+                            ...next,
+                            all: Object.values(next).every((x) => !x),
                           },
                         });
                       }
@@ -192,14 +185,18 @@ export default function Portfolio() {
         <PortfolioWorkWrap>
           {uniqueData(filtered).map((item, index) => {
             return (
-              <PortfolioWork key={index}>
-                <a href="https://www.google.com/">
-                  <img src={item.image} alt={item.title} />
-                </a>
-              </PortfolioWork>
+              <PortfolioCard
+                key={index}
+                link={"https://www.google.com/"}
+                title={item.title}
+                description={item.description}
+                subtitle={item.techUsed}
+                image={item.image}
+              />
             );
           })}
         </PortfolioWorkWrap>
+        <GetInTouch />
       </PortfolioSection>
     </Container>
   );
