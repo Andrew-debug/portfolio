@@ -1,21 +1,27 @@
 import styled from "styled-components";
+// import { motion } from "framer-motion";
+
 import Button from "../assets/buttons/HomeButton";
 
-const Container = styled.main`
-  /* transform-origin: 100% 0px 0px;
+export const Container = styled.main`
+  transform-origin: 100% 0px 0px;
+  overflow: hidden;
+  height: ${(props) => props.contentClosingDelay && "100vh !important"};
   transition: ${(props) =>
     props.isNavOpen
-      ? "transform 0.4s ease 0s"
-      : "transform 0.3s ease 0s, opacity 0.3s ease 0s"};
+      ? "all 0.4s ease 0s"
+      : "all 0.3s ease 0s, opacity 0.3s ease 0s"};
 
-  ${(props) =>
-    props.isNavOpen &&
-    "transform: translate(-30px, 3%) rotateY(-8deg) scale(0.85, 0.94)"}
+  transform: ${(props) =>
+    props.isNavOpen && "translate(-30px, 3%) rotateY(-8deg) scale(0.85, 0.94)"};
   ${(props) => props.isNavOpen && "overflow: hidden"}
-  ${(props) => props.isNavOpen && "height: 100vh !important"} */
-
-  transform-origin: 100% 0px 0px;
-  transition: transform 0.3s ease 0s, opacity 0.3s ease 0s;
+  ${(props) => props.isNavOpen && "height: 100vh !important"};
+  background-color: ${(props) =>
+    props.isNavOpen ? "rgb(18,25,47)" : "rgb(22,32,58)"};
+  cursor: ${(props) => props.isNavOpen && "pointer"};
+  :hover {
+    transform-origin: ${(props) => props.isNavOpen && "90% 0px 0px"};
+  }
 `;
 
 const MainContent = styled.div`
@@ -66,9 +72,18 @@ const RightContentButtonsWrap = styled.div`
 
 const LeftContent = styled.div``;
 
-export default function Home({ isNavOpen }) {
+export default function Home({ isNavOpen, setisNavOpen, contentClosingDelay }) {
   return (
-    <Container isNavOpen={isNavOpen}>
+    <Container
+      contentClosingDelay={contentClosingDelay}
+      isNavOpen={isNavOpen}
+      onClick={() => setisNavOpen(false)}
+    >
+      {/* <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, transition: { duration: 4 } }}
+        exit={{ opacity: 0 }}
+      > */}
       <MainContent>
         <InnerContentWrap>
           <InnerContent>
@@ -113,6 +128,7 @@ export default function Home({ isNavOpen }) {
           </InnerContent>
         </InnerContentWrap>
       </MainContent>
+      {/* </motion.div> */}
     </Container>
   );
 }

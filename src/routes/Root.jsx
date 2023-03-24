@@ -1,5 +1,8 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, NavLink, useLocation } from "react-router-dom";
+// import { AnimatePresence } from "framer-motion";
 import styled from "styled-components";
+// import TransitionPage from "../components/TransitionPage";
+// import { useState } from "react";
 
 const Header = styled.header`
   position: fixed;
@@ -155,7 +158,7 @@ const NavLinksUnit = styled.li`
     props.isNavOpen ? "transform: translateX(0px)" : "translateX(-100%)"};
 `;
 
-const NavLinkSpanTitle = styled.span`
+const NavLinkSpanTitle = styled.h1`
   transition: color 0.2s ease 0s;
   color: rgb(255, 255, 255);
   margin: 0px;
@@ -164,7 +167,7 @@ const NavLinkSpanTitle = styled.span`
   line-height: 1.2;
 `;
 
-const NavLink = styled(Link)`
+const NavigLink = styled(NavLink)`
   flex: 1 1 0%;
   padding: 8px 32px;
   display: flex;
@@ -220,14 +223,33 @@ const Container = styled.div`
   transform: translateZ(0px);
 `;
 
-export default function Root({ isNavOpen, setisNavOpen }) {
+export default function Root({
+  isNavOpen,
+  setisNavOpen,
+  setcontentClosingDelay,
+}) {
+  // const location = useLocation();
+
+  // const [transitionOn, settransitionOn] = useState(false);
   return (
-    <>
+    <div style={{ position: "relative" }}>
       <Header>
         <HeaderLogo>
           <>imgA</>
         </HeaderLogo>
-        <NavButtonToggle onClick={() => setisNavOpen((prev) => !prev)}>
+        <NavButtonToggle
+          onClick={() => {
+            setisNavOpen((prev) => !prev);
+
+            if (!isNavOpen) {
+              setcontentClosingDelay(true);
+            } else {
+              setTimeout(() => {
+                setcontentClosingDelay(false);
+              }, 300);
+            }
+          }}
+        >
           <NavButtonSpan isNavOpen={isNavOpen}>
             <NavButtonContent isNavOpen={isNavOpen} />
             <NavButtonContent isNavOpen={isNavOpen} />
@@ -259,41 +281,95 @@ export default function Root({ isNavOpen, setisNavOpen }) {
       <Nav isNavOpen={isNavOpen}>
         <NavLinks>
           <NavLinksUnit isNavOpen={isNavOpen}>
-            <NavLink onClick={() => setisNavOpen(false)} to="/">
+            <NavigLink
+              className={({ isActive }) => (isActive ? "active" : "inactive")}
+              onClick={() => {
+                setisNavOpen(false);
+                if (!isNavOpen) {
+                  setcontentClosingDelay(true);
+                } else {
+                  setTimeout(() => {
+                    setcontentClosingDelay(false);
+                  }, 300);
+                }
+              }}
+              to="/"
+            >
               <NavLinkSpanTitle>Home</NavLinkSpanTitle>
               <NavLinkSpanContent>Introduction</NavLinkSpanContent>
-            </NavLink>
+            </NavigLink>
           </NavLinksUnit>
           <NavLinksUnit isNavOpen={isNavOpen}>
-            <NavLink onClick={() => setisNavOpen(false)} to="/about">
+            <NavigLink
+              className={({ isActive }) => (isActive ? "active" : "inactive")}
+              onClick={() => {
+                setisNavOpen(false);
+                if (!isNavOpen) {
+                  setcontentClosingDelay(true);
+                } else {
+                  setTimeout(() => {
+                    setcontentClosingDelay(false);
+                  }, 300);
+                }
+              }}
+              to="/about"
+            >
               <NavLinkSpanTitle>About</NavLinkSpanTitle>
               <NavLinkSpanContent>
                 Professional skills and experience
               </NavLinkSpanContent>
-            </NavLink>
+            </NavigLink>
           </NavLinksUnit>
           <NavLinksUnit isNavOpen={isNavOpen}>
-            <NavLink onClick={() => setisNavOpen(false)} to="/portfolio">
+            <NavigLink
+              className={({ isActive }) => (isActive ? "active" : "inactive")}
+              onClick={() => {
+                setisNavOpen(false);
+                if (!isNavOpen) {
+                  setcontentClosingDelay(true);
+                } else {
+                  setTimeout(() => {
+                    setcontentClosingDelay(false);
+                  }, 300);
+                }
+              }}
+              to="/portfolio"
+            >
               <NavLinkSpanTitle>Portfolio</NavLinkSpanTitle>
               <NavLinkSpanContent>
                 Some of the projects I worked on
               </NavLinkSpanContent>
-            </NavLink>
+            </NavigLink>
           </NavLinksUnit>
-          <NavLinksUnit
-            onClick={() => setisNavOpen(false)}
-            isNavOpen={isNavOpen}
-          >
-            <NavLink to="/contact">
+          <NavLinksUnit isNavOpen={isNavOpen}>
+            <NavigLink
+              className={({ isActive }) => (isActive ? "active" : "inactive")}
+              onClick={() => {
+                setisNavOpen(false);
+                if (!isNavOpen) {
+                  setcontentClosingDelay(true);
+                } else {
+                  setTimeout(() => {
+                    setcontentClosingDelay(false);
+                  }, 300);
+                }
+              }}
+              to="/contact"
+            >
               <NavLinkSpanTitle>Contact</NavLinkSpanTitle>
               <NavLinkSpanContent>Get in touch</NavLinkSpanContent>
-            </NavLink>
+            </NavigLink>
           </NavLinksUnit>
         </NavLinks>
       </Nav>
-      <Container>
+      {/* <TransitionPage transitionOn={transitionOn} /> */}
+      {/* <AnimatePresence> */}
+      <Container
+      // location={location} key={location.pathname}
+      >
         <Outlet />
       </Container>
-    </>
+      {/* </AnimatePresence> */}
+    </div>
   );
 }

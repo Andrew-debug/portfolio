@@ -11,32 +11,62 @@ import Contact from "./components/Contact";
 
 export default function App() {
   const [isNavOpen, setisNavOpen] = useState(false);
+  const [contentClosingDelay, setcontentClosingDelay] = useState(false);
 
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Root isNavOpen={isNavOpen} setisNavOpen={setisNavOpen} />,
+      element: (
+        <Root
+          isNavOpen={isNavOpen}
+          setisNavOpen={setisNavOpen}
+          setcontentClosingDelay={setcontentClosingDelay}
+        />
+      ),
       errorElement: <ErrorPage />,
       children: [
         {
           path: "/",
-          element: <Home isNavOpen={isNavOpen} />,
+          element: (
+            <Home
+              isNavOpen={isNavOpen}
+              setisNavOpen={setisNavOpen}
+              contentClosingDelay={contentClosingDelay}
+            />
+          ),
         },
         {
           path: "/about",
-          element: <About />,
+          element: (
+            <About
+              isNavOpen={isNavOpen}
+              setisNavOpen={setisNavOpen}
+              contentClosingDelay={contentClosingDelay}
+            />
+          ),
         },
         {
           path: "/portfolio",
-          element: <Portfolio />,
+          element: (
+            <Portfolio
+              isNavOpen={isNavOpen}
+              setisNavOpen={setisNavOpen}
+              contentClosingDelay={contentClosingDelay}
+            />
+          ),
         },
         {
           path: "/contact",
-          element: <Contact />,
+          element: (
+            <Contact
+              isNavOpen={isNavOpen}
+              setisNavOpen={setisNavOpen}
+              contentClosingDelay={contentClosingDelay}
+            />
+          ),
         },
       ],
     },
   ]);
-
   return <RouterProvider router={router} />;
 }

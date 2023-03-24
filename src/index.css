@@ -18,3 +18,17 @@
 body {
   background: rgb(22, 32, 58);
 }
+
+.active {
+  background: rgb(28, 40, 73);
+}
+.active h1 {
+  color: rgb(226, 120, 108);
+}
+.active span {
+  color: rgb(255, 255, 255);
+}
+.active:before,
+.active:after {
+  transform: none !important;
+}

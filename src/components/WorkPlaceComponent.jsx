@@ -18,6 +18,14 @@ const experience = [
     responsibilities:
       "Currently working in a full-stack/devops team with a goal of building a bank in cloud using some of the latest technologies like Google Cloud Platform, Kubernetes + Istio, Java + Spring boot and React.",
   },
+  {
+    date: "November 2020 - Present",
+    city: "Stockholm",
+    position: "Software Engineer",
+    company: "Nordnet Bank AB",
+    responsibilities:
+      "Currently working in a full-stack/devops team with a goal of building a bank in cloud using some of the latest technologies like Google Cloud Platform, Kubernetes + Istio, Java + Spring boot and React.",
+  },
 ];
 
 const Work = styled.div`
@@ -70,12 +78,11 @@ const Responsibilities = styled.div`
 
 const Separator = styled.div`
   position: absolute;
-  top: 5px;
+  top: 7px;
   left: 50%;
-  bottom: 0px;
+  bottom: -5px;
   width: 1px;
-  transform: translateX(-1px);
-  z-index: -1;
+  transform: translateX(-0.5px);
   background: rgba(255, 255, 255, 0.2);
 `;
 
@@ -91,10 +98,10 @@ function WorkPlaceComponent() {
                 <WorkDate>{item.date}</WorkDate>
                 <WorkCity>{item.city}</WorkCity>
               </div>
-              <div style={{ position: "relative" }}>
+              <div style={{ position: "relative", marginTop: 10 }}>
                 <div
                   style={{
-                    marginTop: -5,
+                    marginTop: index === 0 ? "-7px" : "-5px",
                     width: 12,
                     height: 12,
                     borderRadius: "50%",

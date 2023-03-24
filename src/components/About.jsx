@@ -1,22 +1,27 @@
 import React from "react";
 import styled from "styled-components";
+// import { motion } from "framer-motion";
+
 import GetInTouch from "./GetInTouch";
 import StackList from "./StackList";
 import WorkPlaceComponent from "./WorkPlaceComponent";
+import { Container } from "./Home";
 
-const Container = styled.div`
+const MainContent = styled.div`
   width: 100%;
   max-width: 1140px;
   margin: 0px auto;
-  padding: 0px 24px;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding: 40px 24px 40px 24px;
 `;
 
 const AboutWrap = styled.div`
   display: flex;
   flex-direction: row;
   padding: 20px;
+  background: ${(props) =>
+    props.isNavOpen
+      ? "rgb(28, 39, 72)"
+      : "linear-gradient(45deg, rgb(28, 40, 73) 0%, rgb(36, 52, 95) 100%)"};
 `;
 
 const Left = styled.div`
@@ -25,10 +30,16 @@ const Left = styled.div`
   padding: 15px;
   color: white;
   h1 {
-    font: 600 2.4em / 1.2 Raleway, sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 1.2;
+    font-family: Raleway, sans-serif;
   }
   p {
-    font: 400 1.05em / 1.6 Raleway, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: Raleway, sans-serif;
+    line-height: 1.7;
     margin: 12px 0px 0px;
     color: rgba(255, 255, 255, 0.7);
   }
@@ -56,16 +67,24 @@ const Tech = styled.div`
   }
 `;
 
-export default function About() {
+export default function About({
+  isNavOpen,
+  setisNavOpen,
+  contentClosingDelay,
+}) {
   return (
-    <>
-      <Container>
-        <AboutWrap
-          style={{
-            background:
-              "linear-gradient(45deg, rgb(28, 40, 73) 0%, rgb(36, 52, 95) 100%)",
-          }}
-        >
+    <Container
+      contentClosingDelay={contentClosingDelay}
+      isNavOpen={isNavOpen}
+      onClick={() => setisNavOpen(false)}
+    >
+      {/* <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, transition: { duration: 4 } }}
+        exit={{ opacity: 0 }}
+      > */}
+      <MainContent>
+        <AboutWrap isNavOpen={isNavOpen}>
           <Left>
             <h1>About Andrii Yatsenko</h1>
             <p>
@@ -98,8 +117,9 @@ export default function About() {
           </Tech>
           <WorkPlaceComponent />
         </TechWorkWrap>
-      </Container>
+      </MainContent>
       <GetInTouch />
-    </>
+      {/* </motion.div> */}
+    </Container>
   );
 }
