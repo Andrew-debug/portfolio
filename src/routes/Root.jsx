@@ -1,8 +1,5 @@
-import { Outlet, NavLink, useLocation } from "react-router-dom";
-// import { AnimatePresence } from "framer-motion";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-// import TransitionPage from "../components/TransitionPage";
-// import { useState } from "react";
 
 const Header = styled.header`
   position: fixed;
@@ -216,23 +213,13 @@ const NavLinkSpanContent = styled.span`
   color: inherit;
 `;
 
-const Container = styled.div`
-  padding-left: 80px;
-  transition: transform 0.3s ease 0s;
-  perspective: 500px;
-  transform: translateZ(0px);
-`;
-
 export default function Root({
   isNavOpen,
   setisNavOpen,
   setcontentClosingDelay,
 }) {
-  // const location = useLocation();
-
-  // const [transitionOn, settransitionOn] = useState(false);
   return (
-    <div style={{ position: "relative" }}>
+    <>
       <Header>
         <HeaderLogo>
           <>imgA</>
@@ -285,13 +272,6 @@ export default function Root({
               className={({ isActive }) => (isActive ? "active" : "inactive")}
               onClick={() => {
                 setisNavOpen(false);
-                if (!isNavOpen) {
-                  setcontentClosingDelay(true);
-                } else {
-                  setTimeout(() => {
-                    setcontentClosingDelay(false);
-                  }, 300);
-                }
               }}
               to="/"
             >
@@ -304,13 +284,6 @@ export default function Root({
               className={({ isActive }) => (isActive ? "active" : "inactive")}
               onClick={() => {
                 setisNavOpen(false);
-                if (!isNavOpen) {
-                  setcontentClosingDelay(true);
-                } else {
-                  setTimeout(() => {
-                    setcontentClosingDelay(false);
-                  }, 300);
-                }
               }}
               to="/about"
             >
@@ -325,13 +298,6 @@ export default function Root({
               className={({ isActive }) => (isActive ? "active" : "inactive")}
               onClick={() => {
                 setisNavOpen(false);
-                if (!isNavOpen) {
-                  setcontentClosingDelay(true);
-                } else {
-                  setTimeout(() => {
-                    setcontentClosingDelay(false);
-                  }, 300);
-                }
               }}
               to="/portfolio"
             >
@@ -346,13 +312,6 @@ export default function Root({
               className={({ isActive }) => (isActive ? "active" : "inactive")}
               onClick={() => {
                 setisNavOpen(false);
-                if (!isNavOpen) {
-                  setcontentClosingDelay(true);
-                } else {
-                  setTimeout(() => {
-                    setcontentClosingDelay(false);
-                  }, 300);
-                }
               }}
               to="/contact"
             >
@@ -362,14 +321,6 @@ export default function Root({
           </NavLinksUnit>
         </NavLinks>
       </Nav>
-      {/* <TransitionPage transitionOn={transitionOn} /> */}
-      {/* <AnimatePresence> */}
-      <Container
-      // location={location} key={location.pathname}
-      >
-        <Outlet />
-      </Container>
-      {/* </AnimatePresence> */}
-    </div>
+    </>
   );
 }

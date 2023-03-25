@@ -1,28 +1,5 @@
 import styled from "styled-components";
-// import { motion } from "framer-motion";
-
 import Button from "../assets/buttons/HomeButton";
-
-export const Container = styled.main`
-  transform-origin: 100% 0px 0px;
-  overflow: hidden;
-  height: ${(props) => props.contentClosingDelay && "100vh !important"};
-  transition: ${(props) =>
-    props.isNavOpen
-      ? "all 0.4s ease 0s"
-      : "all 0.3s ease 0s, opacity 0.3s ease 0s"};
-
-  transform: ${(props) =>
-    props.isNavOpen && "translate(-30px, 3%) rotateY(-8deg) scale(0.85, 0.94)"};
-  ${(props) => props.isNavOpen && "overflow: hidden"}
-  ${(props) => props.isNavOpen && "height: 100vh !important"};
-  background-color: ${(props) =>
-    props.isNavOpen ? "rgb(18,25,47)" : "rgb(22,32,58)"};
-  cursor: ${(props) => props.isNavOpen && "pointer"};
-  :hover {
-    transform-origin: ${(props) => props.isNavOpen && "90% 0px 0px"};
-  }
-`;
 
 const MainContent = styled.div`
   display: flex;
@@ -74,61 +51,47 @@ const LeftContent = styled.div``;
 
 export default function Home({ isNavOpen, setisNavOpen, contentClosingDelay }) {
   return (
-    <Container
-      contentClosingDelay={contentClosingDelay}
-      isNavOpen={isNavOpen}
-      onClick={() => setisNavOpen(false)}
-    >
-      {/* <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, transition: { duration: 4 } }}
-        exit={{ opacity: 0 }}
-      > */}
-      <MainContent>
-        <InnerContentWrap>
-          <InnerContent>
-            <RightContent>
-              <span style={{ fontWeight: "600", fontSize: 28 }}>
-                Hey there,
-              </span>
-              <h1>
-                my name is Andrii Yatsenko.
-                <br />I am a{" "}
-                <span style={{ color: "rgb(226, 120, 108)" }}>
-                  Front-end Developer
-                </span>{" "}
-                based in Kyiv, Ukraine.
-              </h1>
-              <p
-                style={{
-                  color: "rgba(255, 255, 255, 0.8)",
-                  fontSize: 24,
-                  fontWeight: "200",
-                  lineHeight: 1.6,
-                  marginTop: 20,
-                }}
-              >
-                Specialized in{" "}
-                <strong style={{ color: "white" }}>frontend development</strong>{" "}
-                with 1 year of experience in building the web and working with
-                technologies like React
-              </p>
-              <RightContentButtonsWrap>
-                <Button text={"My portfolio"}></Button>
-                <Button text={"Get in touch"}></Button>
-                <div>
-                  <span>
-                    or learn more{" "}
-                    <a style={{ color: "rgb(226, 120, 108)" }}>about me.</a>
-                  </span>
-                </div>
-              </RightContentButtonsWrap>
-            </RightContent>
-            <LeftContent></LeftContent>
-          </InnerContent>
-        </InnerContentWrap>
-      </MainContent>
-      {/* </motion.div> */}
-    </Container>
+    <MainContent>
+      <InnerContentWrap>
+        <InnerContent>
+          <RightContent>
+            <span style={{ fontWeight: "600", fontSize: 28 }}>Hey there,</span>
+            <h1>
+              my name is Andrii Yatsenko.
+              <br />I am a{" "}
+              <span style={{ color: "rgb(226, 120, 108)" }}>
+                Front-end Developer
+              </span>{" "}
+              based in Kyiv, Ukraine.
+            </h1>
+            <p
+              style={{
+                color: "rgba(255, 255, 255, 0.8)",
+                fontSize: 24,
+                fontWeight: "200",
+                lineHeight: 1.6,
+                marginTop: 20,
+              }}
+            >
+              Specialized in{" "}
+              <strong style={{ color: "white" }}>frontend development</strong>{" "}
+              with 1 year of experience in building the web and working with
+              technologies like React
+            </p>
+            <RightContentButtonsWrap>
+              <Button text={"My portfolio"}></Button>
+              <Button text={"Get in touch"}></Button>
+              <div>
+                <span>
+                  or learn more{" "}
+                  <a style={{ color: "rgb(226, 120, 108)" }}>about me.</a>
+                </span>
+              </div>
+            </RightContentButtonsWrap>
+          </RightContent>
+          <LeftContent></LeftContent>
+        </InnerContent>
+      </InnerContentWrap>
+    </MainContent>
   );
 }

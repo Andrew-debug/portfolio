@@ -1,11 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-// import { motion } from "framer-motion";
 
 import GetInTouch from "./GetInTouch";
 import StackList from "./StackList";
 import WorkPlaceComponent from "./WorkPlaceComponent";
-import { Container } from "./Home";
 
 const MainContent = styled.div`
   width: 100%;
@@ -73,16 +71,7 @@ export default function About({
   contentClosingDelay,
 }) {
   return (
-    <Container
-      contentClosingDelay={contentClosingDelay}
-      isNavOpen={isNavOpen}
-      onClick={() => setisNavOpen(false)}
-    >
-      {/* <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, transition: { duration: 4 } }}
-        exit={{ opacity: 0 }}
-      > */}
+    <>
       <MainContent>
         <AboutWrap isNavOpen={isNavOpen}>
           <Left>
@@ -110,16 +99,12 @@ export default function About({
         <TechWorkWrap>
           <Tech>
             <h2>Most used technologies</h2>
-            {/* <div
-            style={{ width: "100%", height: 300, backgroundColor: "black" }}
-          ></div> */}
             <StackList />
           </Tech>
           <WorkPlaceComponent />
         </TechWorkWrap>
       </MainContent>
       <GetInTouch />
-      {/* </motion.div> */}
-    </Container>
+    </>
   );
 }

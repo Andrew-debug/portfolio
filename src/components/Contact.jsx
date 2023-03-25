@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-// import { motion } from "framer-motion";
 import styled from "styled-components";
-
-import { Container } from "./Home";
 
 const MainContent = styled.div`
   display: flex;
@@ -156,90 +153,78 @@ export default function Contact({
     setformData({ ...formData, [e.target.name]: e.target.value });
   };
   return (
-    <Container
-      borderedMainContent={borderedMainContent}
-      isNavOpen={isNavOpen}
-      onClick={() => setisNavOpen(false)}
-    >
-      {/* <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, transition: { duration: 4 } }}
-        exit={{ opacity: 0 }}
-      > */}
-      <MainContent>
-        <ContactContent>
-          <h1>Contact</h1>
-          <LeftRightWrap>
-            <Left>
-              <h2>Where to find me</h2>
-              <p>
-                Do you have an interesting project I can help with? Feel free to
-                reach out to me by using one of the following:
-              </p>
-              <ul>
-                <li>
-                  Email{" "}
-                  <strong>
-                    <a href="">yatsenkoandy97@gmail.com</a>
-                  </strong>
-                </li>
-                <li>
-                  LinkedIn{" "}
-                  <strong>
-                    <a href="">yatsenko-andy</a>
-                  </strong>
-                </li>
-                <li>
-                  Github{" "}
-                  <strong>
-                    <a href="">Andrew-debug</a>
-                  </strong>
-                </li>
-              </ul>
-              <p>You can also use the contact form on this page.</p>
-            </Left>
-            <Right>
-              <Card>
-                <CardTitle>Leave a message</CardTitle>
-                <Form onSubmit={handleSubmit}>
-                  <Group>
-                    <input
-                      placeholder=""
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                    />
-                    <label htmlFor="name">Name</label>
-                  </Group>
-                  <Group>
-                    <input
-                      placeholder=""
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                    />
-                    <label htmlFor="email">Email</label>
-                  </Group>
-                  <Group>
-                    <textarea
-                      placeholder=""
-                      name="message"
-                      rows="10"
-                      value={formData.message}
-                      onChange={handleChange}
-                    ></textarea>
-                    <label htmlFor="comment">Message</label>
-                  </Group>
-                  <button type="submit">Submit</button>
-                </Form>
-              </Card>
-            </Right>
-          </LeftRightWrap>
-        </ContactContent>
-      </MainContent>
-      {/* </motion.div> */}
-    </Container>
+    <MainContent>
+      <ContactContent>
+        <h1>Contact</h1>
+        <LeftRightWrap>
+          <Left>
+            <h2>Where to find me</h2>
+            <p>
+              Do you have an interesting project I can help with? Feel free to
+              reach out to me by using one of the following:
+            </p>
+            <ul>
+              <li>
+                Email{" "}
+                <strong>
+                  <a href="">yatsenkoandy97@gmail.com</a>
+                </strong>
+              </li>
+              <li>
+                LinkedIn{" "}
+                <strong>
+                  <a href="">yatsenko-andy</a>
+                </strong>
+              </li>
+              <li>
+                Github{" "}
+                <strong>
+                  <a href="">Andrew-debug</a>
+                </strong>
+              </li>
+            </ul>
+            <p>You can also use the contact form on this page.</p>
+          </Left>
+          <Right>
+            <Card>
+              <CardTitle>Leave a message</CardTitle>
+              <Form onSubmit={handleSubmit}>
+                <Group>
+                  <input
+                    placeholder=""
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                  />
+                  <label htmlFor="name">Name</label>
+                </Group>
+                <Group>
+                  <input
+                    placeholder=""
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                  />
+                  <label htmlFor="email">Email</label>
+                </Group>
+                <Group>
+                  <textarea
+                    placeholder=""
+                    name="message"
+                    rows="10"
+                    value={formData.message}
+                    onChange={handleChange}
+                  ></textarea>
+                  <label htmlFor="comment">Message</label>
+                </Group>
+                <button type="submit">Submit</button>
+              </Form>
+            </Card>
+          </Right>
+        </LeftRightWrap>
+      </ContactContent>
+    </MainContent>
   );
 }

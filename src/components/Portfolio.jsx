@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-// import { motion } from "framer-motion";
 
 import data from "../assets/data/portfolioData.js";
 import GetInTouch from "./GetInTouch.jsx";
 import PortfolioCard from "./PortfolioCard.jsx";
-import { Container } from "./Home";
 
 const Header = styled.div`
   background: linear-gradient(45deg, rgb(36, 52, 95) 0%, rgb(28, 40, 73) 100%);
@@ -137,16 +135,7 @@ export default function Portfolio({
   }
 
   return (
-    <Container
-      contentClosingDelay={contentClosingDelay}
-      isNavOpen={isNavOpen}
-      onClick={() => setisNavOpen(false)}
-    >
-      {/* <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, transition: { duration: 4 } }}
-        exit={{ opacity: 0 }}
-      > */}
+    <>
       <Header>
         <HeaderWrap>
           <h1>Front-end Developer Portfolio</h1>
@@ -212,7 +201,6 @@ export default function Portfolio({
         </PortfolioWorkWrap>
         <GetInTouch />
       </PortfolioSection>
-      {/* </motion.div> */}
-    </Container>
+    </>
   );
 }

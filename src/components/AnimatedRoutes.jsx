@@ -1,0 +1,35 @@
+import React from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
+import Home from "./Home";
+import About from "./About";
+import Portfolio from "./Portfolio";
+import Contact from "./Contact";
+import { AnimatePresence } from "framer-motion";
+import AnimationLayout from "./AnimationLayout";
+export default function AnimatedRoutes({
+  isNavOpen,
+  setisNavOpen,
+  contentClosingDelay,
+}) {
+  const location = useLocation();
+  return (
+    <AnimatePresence>
+      <Routes location={location} key={location.pathname}>
+        <Route
+          element={
+            <AnimationLayout
+              isNavOpen={isNavOpen}
+              setisNavOpen={setisNavOpen}
+              contentClosingDelay={contentClosingDelay}
+            />
+          }
+        >
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/contact" element={<Contact />} />
+        </Route>
+      </Routes>
+    </AnimatePresence>
+  );
+}
