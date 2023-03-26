@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 const Header = styled.header`
@@ -217,7 +217,10 @@ export default function Root({
   isNavOpen,
   setisNavOpen,
   setcontentClosingDelay,
+  setopeningContent,
+  setframeAllContent,
 }) {
+  const { pathname } = useLocation();
   return (
     <>
       <Header>
@@ -272,6 +275,28 @@ export default function Root({
               className={({ isActive }) => (isActive ? "active" : "inactive")}
               onClick={() => {
                 setisNavOpen(false);
+
+                if (!isNavOpen) {
+                  setcontentClosingDelay(true);
+                } else {
+                  setTimeout(() => {
+                    setcontentClosingDelay(false);
+                  }, 300);
+                }
+
+                if (pathname !== "/") {
+                  setTimeout(() => {
+                    setopeningContent(true);
+                  }, 500);
+                  setTimeout(() => {
+                    setopeningContent(false);
+                  }, 1000);
+
+                  setframeAllContent(true);
+                  setTimeout(() => {
+                    setframeAllContent(false);
+                  }, 1000);
+                }
               }}
               to="/"
             >
@@ -284,6 +309,28 @@ export default function Root({
               className={({ isActive }) => (isActive ? "active" : "inactive")}
               onClick={() => {
                 setisNavOpen(false);
+
+                if (!isNavOpen) {
+                  setcontentClosingDelay(true);
+                } else {
+                  setTimeout(() => {
+                    setcontentClosingDelay(false);
+                  }, 300);
+                }
+
+                if (pathname !== "/about") {
+                  setTimeout(() => {
+                    setopeningContent(true);
+                  }, 500);
+                  setTimeout(() => {
+                    setopeningContent(false);
+                  }, 1000);
+
+                  setframeAllContent(true);
+                  setTimeout(() => {
+                    setframeAllContent(false);
+                  }, 1000);
+                }
               }}
               to="/about"
             >
@@ -298,6 +345,28 @@ export default function Root({
               className={({ isActive }) => (isActive ? "active" : "inactive")}
               onClick={() => {
                 setisNavOpen(false);
+
+                if (!isNavOpen) {
+                  setcontentClosingDelay(true);
+                } else {
+                  setTimeout(() => {
+                    setcontentClosingDelay(false);
+                  }, 300);
+                }
+
+                if (pathname !== "/portfolio") {
+                  setTimeout(() => {
+                    setopeningContent(true);
+                  }, 500);
+                  setTimeout(() => {
+                    setopeningContent(false);
+                  }, 1000);
+
+                  setframeAllContent(true);
+                  setTimeout(() => {
+                    setframeAllContent(false);
+                  }, 1000);
+                }
               }}
               to="/portfolio"
             >
@@ -312,6 +381,28 @@ export default function Root({
               className={({ isActive }) => (isActive ? "active" : "inactive")}
               onClick={() => {
                 setisNavOpen(false);
+
+                if (!isNavOpen) {
+                  setcontentClosingDelay(true);
+                } else {
+                  setTimeout(() => {
+                    setcontentClosingDelay(false);
+                  }, 300);
+                }
+
+                if (pathname !== "/contact") {
+                  setTimeout(() => {
+                    setopeningContent(true);
+                  }, 500);
+                  setTimeout(() => {
+                    setopeningContent(false);
+                  }, 1000);
+
+                  setframeAllContent(true);
+                  setTimeout(() => {
+                    setframeAllContent(false);
+                  }, 1000);
+                }
               }}
               to="/contact"
             >

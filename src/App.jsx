@@ -10,18 +10,26 @@ import AnimatedRoutes from "./components/AnimatedRoutes";
 export default function App() {
   const [isNavOpen, setisNavOpen] = useState(false);
   const [contentClosingDelay, setcontentClosingDelay] = useState(false);
+  const [openingContent, setopeningContent] = useState(false);
+  const [frameAllContent, setframeAllContent] = useState(false);
   return (
-    <BrowserRouter>
-      <Root
-        isNavOpen={isNavOpen}
-        setisNavOpen={setisNavOpen}
-        setcontentClosingDelay={setcontentClosingDelay}
-      />
-      <AnimatedRoutes
-        isNavOpen={isNavOpen}
-        setisNavOpen={setisNavOpen}
-        contentClosingDelay={contentClosingDelay}
-      />
-    </BrowserRouter>
+    <div className={`${frameAllContent ? "app" : ""}`}>
+      <BrowserRouter>
+        <Root
+          isNavOpen={isNavOpen}
+          setisNavOpen={setisNavOpen}
+          setcontentClosingDelay={setcontentClosingDelay}
+          setopeningContent={setopeningContent}
+          setframeAllContent={setframeAllContent}
+        />
+        <AnimatedRoutes
+          isNavOpen={isNavOpen}
+          setisNavOpen={setisNavOpen}
+          contentClosingDelay={contentClosingDelay}
+          setcontentClosingDelay={setcontentClosingDelay}
+          openingContent={openingContent}
+        />
+      </BrowserRouter>
+    </div>
   );
 }

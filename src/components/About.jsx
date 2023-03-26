@@ -8,7 +8,9 @@ import WorkPlaceComponent from "./WorkPlaceComponent";
 const MainContent = styled.div`
   width: 100%;
   max-width: 1140px;
-  margin: 0px auto;
+  margin: ${(props) =>
+    props.contentClosingDelay ? "0px calc(auto - 20px)" : "0px auto"};
+  /* margin: 0px auto; */
   padding: 40px 24px 40px 24px;
 `;
 
@@ -72,7 +74,7 @@ export default function About({
 }) {
   return (
     <>
-      <MainContent>
+      <MainContent contentClosingDelay={contentClosingDelay}>
         <AboutWrap isNavOpen={isNavOpen}>
           <Left>
             <h1>About Andrii Yatsenko</h1>

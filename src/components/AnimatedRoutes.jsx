@@ -10,6 +10,8 @@ export default function AnimatedRoutes({
   isNavOpen,
   setisNavOpen,
   contentClosingDelay,
+  setcontentClosingDelay,
+  openingContent,
 }) {
   const location = useLocation();
   return (
@@ -21,6 +23,8 @@ export default function AnimatedRoutes({
               isNavOpen={isNavOpen}
               setisNavOpen={setisNavOpen}
               contentClosingDelay={contentClosingDelay}
+              setcontentClosingDelay={setcontentClosingDelay}
+              openingContent={openingContent}
             />
           }
         >

@@ -32,3 +32,8 @@ body {
 .active:after {
   transform: none !important;
 }
+
+.app {
+  height: 100vh;
+  overflow: hidden;
+}

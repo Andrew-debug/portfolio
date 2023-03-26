@@ -1,8 +1,6 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { motion } from "framer-motion";
-import { AnimatePresence } from "framer-motion";
 import styled, { keyframes } from "styled-components";
-import TransitionPage from "./TransitionPage";
 
 const Wrap = styled.main`
   position: relative;
@@ -15,7 +13,7 @@ const Wrap = styled.main`
 const Container = styled.div`
   transform-origin: 100% 0px 0px;
   overflow: hidden;
-  height: ${(props) => props.contentClosingDelay && "100vh !important"};
+  height: ${(props) => (props.contentClosingDelay ? "100vh !important" : "")};
   transition: ${(props) =>
     props.isNavOpen
       ? "all 0.4s ease 0s"
@@ -45,47 +43,58 @@ const Container = styled.div`
   }
 `;
 
-const style = {
-  position: "absolute",
-  top: 0,
-  width: 0,
-  height: "100%",
-  overflow: "hidden",
-  backgroundColor: "rgb(28, 40, 73)",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  zIndex: 999,
-  // animation: `${makeEntrance} 1s linear`,
-};
-
-const makeEntrance = keyframes`
-    0% {
-        width: 0;
-     }
-     50% {
-         width: 100%;
-    }
-    100% {
-        right: 0;
-        width: 0;
-    }
-
- `;
 const initialContainer = {
   transformOrigin: "100% 0px 0px",
   transition: "transform 0.3s ease 0s, opacity 0.3s ease 0s",
-  overflow: "visible",
-  transition: "all 0.3s ease 0s, opacity 0.3s ease 0s",
   transform: "translate(0, 0%) rotateY(0) scale(1)",
   backgroundColor: "rgb(22,32,58)",
   cursor: "auto",
 };
 
+const Curtain = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* ${(props) => (props.openingContent ? "left: 0" : "right: 0")}; */
+  width: ${(props) => (props.openingContent ? "100%" : "0%")};
+  height: 100%;
+  /* visibility: hidden; */
+  background: linear-gradient(45deg, rgb(36, 52, 95) 0%, rgb(28, 40, 73) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  overflow: hidden;
+`;
+
+const makeEntrance = keyframes`
+    0% {
+        width: 100%;
+     }
+    100% {
+        width: 0;
+    }
+ `;
+
+const ClosingCurtain = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(45deg, rgb(36, 52, 95) 0%, rgb(28, 40, 73) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: ${makeEntrance} 0.5s ease-out;
+`;
 export default function AnimationLayout({
   isNavOpen,
   setisNavOpen,
   contentClosingDelay,
+  setcontentClosingDelay,
+  openingContent,
 }) {
   return (
     <Wrap>
@@ -96,11 +105,35 @@ export default function AnimationLayout({
         ////////////////////////////////
         contentClosingDelay={contentClosingDelay}
         isNavOpen={isNavOpen}
-        onClick={() => setisNavOpen(false)}
+        onClick={() => {
+          setisNavOpen(false);
+
+          if (isNavOpen) {
+            setTimeout(() => {
+              setcontentClosingDelay(false);
+            }, 300);
+          }
+        }}
       >
         <Outlet />
-        {/* <TransitionPage /> */}
       </Container>
+      {!openingContent && (
+        <Curtain
+          as={motion.div}
+          openingContent={openingContent}
+          /////////////////////
+          exit={{
+            width: ["0%", "100%"],
+            // visibility: "visible",
+            transition: {
+              duration: 0.5,
+              ease: "easeOut",
+              repeatDelay: 1,
+            },
+          }}
+        />
+      )}
+      {openingContent && <ClosingCurtain openingContent={openingContent} />}
     </Wrap>
   );
 }
