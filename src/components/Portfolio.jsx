@@ -1,3 +1,4 @@
+import { AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
 import styled from "styled-components";
 
@@ -186,18 +187,21 @@ export default function Portfolio({
           </FilterWrap>
         </PortfolioWrap>
         <PortfolioWorkWrap>
-          {uniqueData(filtered).map((item, index) => {
-            return (
-              <PortfolioCard
-                key={index}
-                link={"https://www.google.com/"}
-                title={item.title}
-                description={item.description}
-                subtitle={item.techUsed}
-                image={item.image}
-              />
-            );
-          })}
+          <AnimatePresence>
+            {uniqueData(filtered).map((item, index) => {
+              return (
+                <PortfolioCard
+                  key={index}
+                  link={"https://www.google.com/"}
+                  title={item.title}
+                  description={item.description}
+                  subtitle={item.techUsed}
+                  image={item.image}
+                  index={index}
+                />
+              );
+            })}
+          </AnimatePresence>
         </PortfolioWorkWrap>
         <GetInTouch />
       </PortfolioSection>

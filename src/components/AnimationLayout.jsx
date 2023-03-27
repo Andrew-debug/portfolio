@@ -11,6 +11,8 @@ const Wrap = styled.main`
 `;
 
 const Container = styled.div`
+  width: ${(props) => (props.isNavOpen ? "calc(100% - 20px)" : "100%")};
+  margin: 0 auto;
   transform-origin: 100% 0px 0px;
   overflow: hidden;
   height: ${(props) => (props.contentClosingDelay ? "100vh !important" : "")};
@@ -57,7 +59,7 @@ const Curtain = styled.div`
   left: 0;
   /* ${(props) => (props.openingContent ? "left: 0" : "right: 0")}; */
   width: ${(props) => (props.openingContent ? "100%" : "0%")};
-  height: 100%;
+  height: 100vh;
   /* visibility: hidden; */
   background: linear-gradient(45deg, rgb(36, 52, 95) 0%, rgb(28, 40, 73) 100%);
   display: flex;
@@ -80,7 +82,7 @@ const ClosingCurtain = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  height: 100%;
+  height: 100vh;
   overflow: hidden;
   background: linear-gradient(45deg, rgb(36, 52, 95) 0%, rgb(28, 40, 73) 100%);
   display: flex;
@@ -88,6 +90,38 @@ const ClosingCurtain = styled.div`
   align-items: center;
   z-index: 999;
   animation: ${makeEntrance} 0.5s ease-out;
+`;
+
+const roflRotation = keyframes`
+    from {
+      transform: rotate(-359deg);
+    }
+    to {
+      transform: rotate(0deg);
+  }
+ `;
+const roflRotation1 = keyframes`
+    from {
+      transform: rotate(0deg);
+  }
+    to {
+      transform: rotate(359deg);
+  }
+ `;
+
+const Rofl = styled.div`
+  width: 80px;
+  height: 80px;
+  background-color: black;
+  z-index: 1000;
+  animation: ${roflRotation} 2s infinite linear;
+`;
+const Rofl1 = styled.div`
+  width: 80px;
+  height: 80px;
+  background-color: black;
+  z-index: 1000;
+  animation: ${roflRotation1} 2s infinite linear;
 `;
 export default function AnimationLayout({
   isNavOpen,
@@ -131,9 +165,15 @@ export default function AnimationLayout({
               repeatDelay: 1,
             },
           }}
-        />
+        >
+          <Rofl></Rofl>
+        </Curtain>
       )}
-      {openingContent && <ClosingCurtain openingContent={openingContent} />}
+      {openingContent && (
+        <ClosingCurtain openingContent={openingContent}>
+          <Rofl1></Rofl1>
+        </ClosingCurtain>
+      )}
     </Wrap>
   );
 }

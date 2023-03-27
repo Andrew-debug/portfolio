@@ -1,6 +1,7 @@
 import { NavLink, useLocation } from "react-router-dom";
 import styled from "styled-components";
-
+73, 125, 189;
+22, 32, 58;
 const Header = styled.header`
   position: fixed;
   width: 80px;
@@ -213,6 +214,29 @@ const NavLinkSpanContent = styled.span`
   color: inherit;
 `;
 
+const data = [
+  {
+    linkPathname: "/",
+    title: "Home",
+    subtitle: "Introduction",
+  },
+  {
+    linkPathname: "/about",
+    title: "About",
+    subtitle: "Professional skills and experience",
+  },
+  {
+    linkPathname: "/portfolio",
+    title: "Portfolio",
+    subtitle: "Some of the projects I worked on",
+  },
+  {
+    linkPathname: "/contact",
+    title: "Contact",
+    subtitle: "Get in touch",
+  },
+];
+
 export default function Root({
   isNavOpen,
   setisNavOpen,
@@ -270,146 +294,46 @@ export default function Root({
       </Header>
       <Nav isNavOpen={isNavOpen}>
         <NavLinks>
-          <NavLinksUnit isNavOpen={isNavOpen}>
-            <NavigLink
-              className={({ isActive }) => (isActive ? "active" : "inactive")}
-              onClick={() => {
-                setisNavOpen(false);
+          {data.map((item, index) => {
+            return (
+              <NavLinksUnit key={index} isNavOpen={isNavOpen}>
+                <NavigLink
+                  className={({ isActive }) =>
+                    isActive ? "active" : "inactive"
+                  }
+                  onClick={() => {
+                    setisNavOpen(false);
 
-                if (!isNavOpen) {
-                  setcontentClosingDelay(true);
-                } else {
-                  setTimeout(() => {
-                    setcontentClosingDelay(false);
-                  }, 300);
-                }
+                    if (!isNavOpen) {
+                      setcontentClosingDelay(true);
+                    } else {
+                      setTimeout(() => {
+                        setcontentClosingDelay(false);
+                      }, 300);
+                    }
 
-                if (pathname !== "/") {
-                  setTimeout(() => {
-                    setopeningContent(true);
-                  }, 500);
-                  setTimeout(() => {
-                    setopeningContent(false);
-                  }, 1000);
+                    if (pathname !== item.linkPathname) {
+                      setTimeout(() => {
+                        setopeningContent(true);
+                      }, 500);
+                      setTimeout(() => {
+                        setopeningContent(false);
+                      }, 1000);
 
-                  setframeAllContent(true);
-                  setTimeout(() => {
-                    setframeAllContent(false);
-                  }, 1000);
-                }
-              }}
-              to="/"
-            >
-              <NavLinkSpanTitle>Home</NavLinkSpanTitle>
-              <NavLinkSpanContent>Introduction</NavLinkSpanContent>
-            </NavigLink>
-          </NavLinksUnit>
-          <NavLinksUnit isNavOpen={isNavOpen}>
-            <NavigLink
-              className={({ isActive }) => (isActive ? "active" : "inactive")}
-              onClick={() => {
-                setisNavOpen(false);
-
-                if (!isNavOpen) {
-                  setcontentClosingDelay(true);
-                } else {
-                  setTimeout(() => {
-                    setcontentClosingDelay(false);
-                  }, 300);
-                }
-
-                if (pathname !== "/about") {
-                  setTimeout(() => {
-                    setopeningContent(true);
-                  }, 500);
-                  setTimeout(() => {
-                    setopeningContent(false);
-                  }, 1000);
-
-                  setframeAllContent(true);
-                  setTimeout(() => {
-                    setframeAllContent(false);
-                  }, 1000);
-                }
-              }}
-              to="/about"
-            >
-              <NavLinkSpanTitle>About</NavLinkSpanTitle>
-              <NavLinkSpanContent>
-                Professional skills and experience
-              </NavLinkSpanContent>
-            </NavigLink>
-          </NavLinksUnit>
-          <NavLinksUnit isNavOpen={isNavOpen}>
-            <NavigLink
-              className={({ isActive }) => (isActive ? "active" : "inactive")}
-              onClick={() => {
-                setisNavOpen(false);
-
-                if (!isNavOpen) {
-                  setcontentClosingDelay(true);
-                } else {
-                  setTimeout(() => {
-                    setcontentClosingDelay(false);
-                  }, 300);
-                }
-
-                if (pathname !== "/portfolio") {
-                  setTimeout(() => {
-                    setopeningContent(true);
-                  }, 500);
-                  setTimeout(() => {
-                    setopeningContent(false);
-                  }, 1000);
-
-                  setframeAllContent(true);
-                  setTimeout(() => {
-                    setframeAllContent(false);
-                  }, 1000);
-                }
-              }}
-              to="/portfolio"
-            >
-              <NavLinkSpanTitle>Portfolio</NavLinkSpanTitle>
-              <NavLinkSpanContent>
-                Some of the projects I worked on
-              </NavLinkSpanContent>
-            </NavigLink>
-          </NavLinksUnit>
-          <NavLinksUnit isNavOpen={isNavOpen}>
-            <NavigLink
-              className={({ isActive }) => (isActive ? "active" : "inactive")}
-              onClick={() => {
-                setisNavOpen(false);
-
-                if (!isNavOpen) {
-                  setcontentClosingDelay(true);
-                } else {
-                  setTimeout(() => {
-                    setcontentClosingDelay(false);
-                  }, 300);
-                }
-
-                if (pathname !== "/contact") {
-                  setTimeout(() => {
-                    setopeningContent(true);
-                  }, 500);
-                  setTimeout(() => {
-                    setopeningContent(false);
-                  }, 1000);
-
-                  setframeAllContent(true);
-                  setTimeout(() => {
-                    setframeAllContent(false);
-                  }, 1000);
-                }
-              }}
-              to="/contact"
-            >
-              <NavLinkSpanTitle>Contact</NavLinkSpanTitle>
-              <NavLinkSpanContent>Get in touch</NavLinkSpanContent>
-            </NavigLink>
-          </NavLinksUnit>
+                      setframeAllContent(true);
+                      setTimeout(() => {
+                        setframeAllContent(false);
+                      }, 550);
+                    }
+                  }}
+                  to={item.linkPathname}
+                >
+                  <NavLinkSpanTitle>{item.title}</NavLinkSpanTitle>
+                  <NavLinkSpanContent>{item.subtitle}</NavLinkSpanContent>
+                </NavigLink>
+              </NavLinksUnit>
+            );
+          })}
         </NavLinks>
       </Nav>
     </>
