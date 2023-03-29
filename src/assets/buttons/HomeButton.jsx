@@ -24,8 +24,9 @@ const ButtonSpan = styled.span`
 `;
 
 const Button = styled.button`
+  width: ${(props) => `${props.width}px`};
   border: none;
-  display: block;
+  display: inline-block;
   position: relative;
   padding: 20px 50px;
   font-size: 18px;
@@ -37,7 +38,7 @@ const Button = styled.button`
   z-index: 1;
   font-family: inherit;
   font-weight: 600;
-  margin: 20px 15px 20px 5px;
+  margin: ${(props) => `${props.margin}`};
   &:hover ${ButtonSpan}::before {
     transform: translate(-50%, -50%) rotate(-90deg);
     width: 100%;
@@ -52,14 +53,12 @@ const Button = styled.button`
   }
 `;
 
-function HomeButton({ text }) {
+function HomeButton({ text, width, type, margin = "20px 15px 20px 5px" }) {
   return (
-    <div style={{ wdith: 400, height: 100 }}>
-      <Button>
-        <p>{text}</p>
-        <ButtonSpan></ButtonSpan>
-      </Button>
-    </div>
+    <Button margin={margin} type={type} width={width}>
+      <p>{text}</p>
+      <ButtonSpan></ButtonSpan>
+    </Button>
   );
 }
 

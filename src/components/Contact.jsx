@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-
+import Button from "../assets/buttons/HomeButton";
 const MainContent = styled.div`
   display: flex;
   flex-direction: column;
@@ -56,91 +56,64 @@ const Left = styled.div`
   }
 `;
 const Right = styled.div`
+  padding: 0 16px;
   flex-basis: 50%;
   width: 50%;
 `;
 
-const Card = styled.div`
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  width: 350px;
-  display: flex;
-  flex-direction: column;
-`;
-
-const CardTitle = styled.span`
-  font-size: 24px;
-  font-weight: 600;
-  text-align: center;
-  color: #3366cc;
-`;
-
 const Form = styled.form`
-  margin-top: 20px;
+  position: relative;
+`;
+const FormContentWrap = styled.div`
   display: flex;
   flex-direction: column;
-  button {
-    background-color: #3366cc;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  button:hover {
-    background-color: #27408b;
-  }
+  margin-left: 0px;
+  margin-right: 0px;
 `;
-
 const Group = styled.div`
-  position: relative;
-  label {
-    font-size: 14px;
-    color: #000;
-    position: absolute;
-    top: -10px;
-    left: 10px;
-    background-color: #fff;
-    transition: background-color 0.2s ease;
+  margin-top: 10px;
+  span {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
   }
-  input,
-  textarea {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
-    outline: 0;
+  input {
+    display: block;
+    padding: 12px;
     width: 100%;
-    background-color: transparent;
-    color: #000;
-    font-family: inherit;
+    margin: 5px 0 0;
+    background: rgb(28, 40, 73);
+    color: rgb(255, 255, 255);
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    transition: background 0.3s ease 0s, border 0.3s ease 0s;
+  }
+  textarea {
+    display: block;
+    padding: 12px;
+    margin: 5px 0 0;
+    background: rgb(28, 40, 73);
+    color: rgb(255, 255, 255);
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    transition: background 0.3s ease 0s, border 0.3s ease 0s;
+    width: 100% !important;
   }
   input:focus,
   textarea:focus {
-    border-color: #3366cc;
-    font-family: inherit;
+    outline: none;
+    background: rgb(36, 52, 95);
+    border-color: rgb(226, 120, 108);
   }
-  input:focus + label,
-  textarea:focus + label {
-    left: 10px;
-    color: #3366cc;
-    font-weight: 600;
-    font-size: 14px;
-  }
-  textarea {
-    resize: none;
-    height: 100px;
+  input::placeholder,
+  textarea::placeholder {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: "Raleway", sans-serif;
+    color: rgba(255, 255, 255, 0.7);
   }
 `;
-
-export default function Contact({
-  isNavOpen,
-  setisNavOpen,
-  borderedMainContent,
-}) {
+export default function Contact() {
   const [formData, setformData] = useState({
     name: "",
     email: "",
@@ -186,42 +159,50 @@ export default function Contact({
             <p>You can also use the contact form on this page.</p>
           </Left>
           <Right>
-            <Card>
-              <CardTitle>Leave a message</CardTitle>
-              <Form onSubmit={handleSubmit}>
+            <h2>Contact Form</h2>
+            <Form onSubmit={handleSubmit}>
+              <FormContentWrap>
                 <Group>
+                  <label htmlFor="name"></label>
+                  <span>Full name</span>
                   <input
-                    placeholder=""
+                    placeholder="Enter your full name..."
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
                   />
-                  <label htmlFor="name">Name</label>
                 </Group>
                 <Group>
+                  <label htmlFor="name"></label>
+                  <span>Email</span>
                   <input
-                    placeholder=""
+                    placeholder="Enter your email..."
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
                   />
-                  <label htmlFor="email">Email</label>
                 </Group>
                 <Group>
+                  <label htmlFor="name"></label>
+                  <span>Message</span>
                   <textarea
-                    placeholder=""
+                    placeholder="Enter your full name..."
                     name="message"
                     rows="10"
                     value={formData.message}
                     onChange={handleChange}
                   ></textarea>
-                  <label htmlFor="comment">Message</label>
                 </Group>
-                <button type="submit">Submit</button>
-              </Form>
-            </Card>
+                <Button
+                  type="submit"
+                  text="Submit"
+                  margin="15px 0 0"
+                  width="200"
+                />
+              </FormContentWrap>
+            </Form>
           </Right>
         </LeftRightWrap>
       </ContactContent>

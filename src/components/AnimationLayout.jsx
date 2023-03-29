@@ -11,8 +11,6 @@ const Wrap = styled.main`
 `;
 
 const Container = styled.div`
-  width: ${(props) => (props.isNavOpen ? "calc(100% - 20px)" : "100%")};
-  margin: 0 auto;
   transform-origin: 100% 0px 0px;
   overflow: hidden;
   height: ${(props) => (props.contentClosingDelay ? "100vh !important" : "")};
@@ -57,10 +55,8 @@ const Curtain = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  /* ${(props) => (props.openingContent ? "left: 0" : "right: 0")}; */
   width: ${(props) => (props.openingContent ? "100%" : "0%")};
   height: 100vh;
-  /* visibility: hidden; */
   background: linear-gradient(45deg, rgb(36, 52, 95) 0%, rgb(28, 40, 73) 100%);
   display: flex;
   justify-content: center;
@@ -134,9 +130,7 @@ export default function AnimationLayout({
     <Wrap>
       <Container
         as={motion.div}
-        ////////////////////////////////
         exit={initialContainer}
-        ////////////////////////////////
         contentClosingDelay={contentClosingDelay}
         isNavOpen={isNavOpen}
         onClick={() => {
@@ -155,10 +149,8 @@ export default function AnimationLayout({
         <Curtain
           as={motion.div}
           openingContent={openingContent}
-          /////////////////////
           exit={{
             width: ["0%", "100%"],
-            // visibility: "visible",
             transition: {
               duration: 0.5,
               ease: "easeOut",

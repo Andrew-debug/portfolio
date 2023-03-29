@@ -1,7 +1,6 @@
-import { AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
 import styled from "styled-components";
-
+import _ from "lodash";
 import data from "../assets/data/portfolioData.js";
 import GetInTouch from "./GetInTouch.jsx";
 import PortfolioCard from "./PortfolioCard.jsx";
@@ -26,12 +25,14 @@ const HeaderWrap = styled.div`
     color: rgba(255, 255, 255, 0.7);
   }
 `;
-const PortfolioSection = styled.div``;
+const PortfolioSection = styled.div`
+  min-height: 500px;
+`;
 
 const PortfolioWrap = styled.div`
   width: 100%;
   max-width: 1140px;
-  margin: 0px auto;
+  margin: 12px auto;
   padding: 0px 24px;
 `;
 
@@ -46,10 +47,12 @@ const FilterTag = styled.div`
 `;
 const FilterButton = styled.button`
   display: inline-block;
+  font-size: 16px;
+  font-weight: 400;
   padding: 8px 16px;
   border: none;
   color: rgba(255, 255, 255, 0.8);
-  /* background: rgb(32, 46, 84); */
+  background: rgb(32, 46, 84);
   cursor: pointer;
   transition: background 0.25s ease 0s;
 `;
@@ -59,80 +62,54 @@ const PortfolioWorkWrap = styled.div`
   flex-wrap: wrap;
   width: 100%;
   max-width: 1140px;
-  margin: 0px auto;
+  margin: 12px auto;
   padding: 0px 24px;
 `;
-const PortfolioWork = styled.div`
-  width: 300px;
-  height: 200px;
-  background-color: black;
 
-  margin: 20px;
-  a img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+const EmptyContent = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 900px;
+  height: 500px;
+  h2 {
+    font-size: 36px;
   }
 `;
 
-export default function Portfolio({
-  isNavOpen,
-  setisNavOpen,
-  contentClosingDelay,
-}) {
+export default function Portfolio({}) {
   const [filter, setfilter] = useState({
-    categories: {
-      all: true,
-      react: false,
-      typescript: false,
-      javascript: false,
-    },
+    all: true,
+    react: false,
+    typescript: false,
+    javascript: false,
   });
 
-  function filterFunc() {
-    const selectedFilterTags = Object.entries(filter.categories).filter(
-      ([key, value]) => value === true
-    );
+  const filtersOn = Object.keys(filter).filter((key) => filter[key] !== false);
 
-    if (!filter.categories.all) {
-      const filteredData = [];
-      const filteredKeys = [];
-      for (const i in selectedFilterTags) {
-        filteredKeys.push(selectedFilterTags[i][0]);
-      }
+  function filteredData() {
+    const dataItemCategories = [];
+    for (const i in data) {
+      dataItemCategories.push(data[i].categories);
+    }
 
-      for (const i in data) {
-        for (const j in filteredKeys) {
-          data[i].categories.forEach((element) => {
-            if (element === filteredKeys[j]) {
-              filteredData.push(data[i]);
-            }
-          });
-          /////// for string instead of array //////
-          // if (data[i].categories === filteredKeys[j]) {
-          //   filteredData.push(data[i]);
-          // }
+    const copiedData = [...data];
+    const newData = [];
+    if (filtersOn.length > 1) {
+      for (const i in dataItemCategories) {
+        if (_.isEqual(_.sortBy(filtersOn), _.sortBy(dataItemCategories[i]))) {
+          newData.push(data[i]);
         }
       }
-      return filteredData;
-    } else {
-      return data;
+      return newData;
+    } else if (filtersOn.length === 1 && filtersOn[0] !== "all") {
+      const copiedData = data.filter((item) =>
+        item.categories.includes(filtersOn[0])
+      );
+      return copiedData;
     }
-  }
-  const filtered = filterFunc();
-
-  function uniqueData(data) {
-    const uniqueFilter = [...new Set(data.map((item) => item.title))];
-    const result = [];
-    for (const i in uniqueFilter) {
-      for (const j in data) {
-        if (uniqueFilter[i] === data[j].title) {
-          result.push(data[j]);
-          break;
-        }
-      }
-    }
-    return result;
+    return copiedData;
   }
 
   return (
@@ -146,9 +123,9 @@ export default function Portfolio({
       <PortfolioSection>
         <PortfolioWrap>
           <FilterWrap>
-            {Object.entries(filter.categories).map(([key, value], index) => {
+            {Object.entries(filter).map(([key, value], index) => {
               return (
-                <FilterTag key={key}>
+                <FilterTag key={index}>
                   <FilterButton
                     style={{
                       backgroundColor: value
@@ -158,28 +135,24 @@ export default function Portfolio({
                     onClick={() => {
                       if (!index) {
                         setfilter({
-                          categories: {
-                            all: true,
-                            react: false,
-                            typescript: false,
-                            javascript: false,
-                          },
+                          all: true,
+                          react: false,
+                          typescript: false,
+                          javascript: false,
                         });
                       } else {
                         const next = {
-                          ...filter.categories,
+                          ...filter,
                           [key]: !value,
                         };
                         setfilter({
-                          categories: {
-                            ...next,
-                            all: Object.values(next).every((x) => !x),
-                          },
+                          ...next,
+                          all: Object.values(next).every((x) => !x),
                         });
                       }
                     }}
                   >
-                    {key}
+                    {key.charAt(0).toUpperCase() + key.slice(1)}
                   </FilterButton>
                 </FilterTag>
               );
@@ -187,24 +160,30 @@ export default function Portfolio({
           </FilterWrap>
         </PortfolioWrap>
         <PortfolioWorkWrap>
-          <AnimatePresence>
-            {uniqueData(filtered).map((item, index) => {
-              return (
-                <PortfolioCard
-                  key={index}
-                  link={"https://www.google.com/"}
-                  title={item.title}
-                  description={item.description}
-                  subtitle={item.techUsed}
-                  image={item.image}
-                  index={index}
-                />
-              );
-            })}
-          </AnimatePresence>
+          {filteredData().length > 0 ? (
+            <>
+              {filteredData().map((item, index) => {
+                return (
+                  <PortfolioCard
+                    key={index}
+                    id={item.id}
+                    link={"https://www.google.com/"}
+                    title={item.title}
+                    description={item.description}
+                    image={item.image}
+                    techUsed={item.techUsed}
+                  />
+                );
+              })}
+            </>
+          ) : (
+            <EmptyContent>
+              <h2>There's is no such project with all these filters on :C</h2>
+            </EmptyContent>
+          )}
         </PortfolioWorkWrap>
-        <GetInTouch />
       </PortfolioSection>
+      <GetInTouch />
     </>
   );
 }
