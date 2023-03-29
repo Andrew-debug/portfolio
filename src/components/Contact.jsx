@@ -15,26 +15,46 @@ const ContactContent = styled.div`
   margin: 0px auto;
   padding: 16px 24px;
   h1 {
-    font-size: 42px;
+    margin: 0px;
+    @media (max-width: 768px) {
+      font-size: 2em;
+    }
+  }
+  @media (max-width: 768px) {
+    padding: 16px 16px;
   }
 `;
 
 const LeftRightWrap = styled.div`
   display: flex;
   flex-direction: row;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 const Left = styled.div`
   flex-basis: 50%;
   width: 50%;
   margin-right: 50px;
+  @media (max-width: 768px) {
+    flex-basis: 100%;
+    width: 100%;
+    margin: 0;
+  }
   h2 {
-    font-size: 28px;
+    margin: 0px;
     padding: 30px 0;
+    @media (max-width: 768px) {
+      padding: 10px 0;
+    }
   }
   p {
     padding: 5px 0;
-    line-height: 1.6;
+    margin: 12px 0px 0px;
     color: rgba(255, 255, 255, 0.7);
+    @media (max-width: 768px) {
+      margin: 0;
+    }
   }
   ul {
     display: block;
@@ -44,6 +64,9 @@ const Left = styled.div`
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     padding-inline-start: 40px;
+    @media (max-width: 768px) {
+      padding-inline-start: 20px;
+    }
   }
   ul li {
     color: rgba(255, 255, 255, 0.7);
@@ -59,6 +82,11 @@ const Right = styled.div`
   padding: 0 16px;
   flex-basis: 50%;
   width: 50%;
+  @media (max-width: 768px) {
+    flex-basis: 100%;
+    width: 100%;
+    padding: 0;
+  }
 `;
 
 const Form = styled.form`
@@ -107,9 +135,7 @@ const Group = styled.div`
   }
   input::placeholder,
   textarea::placeholder {
-    font-size: 16px;
-    font-weight: 400;
-    font-family: "Raleway", sans-serif;
+    font: 400 1.2em / 1.6 "Raleway", sans-serif;
     color: rgba(255, 255, 255, 0.7);
   }
 `;

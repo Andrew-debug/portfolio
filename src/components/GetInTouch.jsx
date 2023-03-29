@@ -3,8 +3,8 @@ import styled from "styled-components";
 import Button from "../assets/buttons/HomeButton";
 const Container = styled.div`
   background: linear-gradient(45deg, rgb(36, 52, 95) 0%, rgb(28, 40, 73) 100%);
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 60px;
+  padding-bottom: 60px;
   margin-top: 10px;
 `;
 const Content = styled.div`
@@ -12,15 +12,25 @@ const Content = styled.div`
   max-width: 1140px;
   margin: 0px auto;
   padding: 0px 24px;
+  @media (max-width: 768px) {
+    padding: 0px 16px;
+  }
   h2 {
-    font-size: 42px;
-    font-weight: 600;
-    color: rgb(255, 255, 255);
+    margin: 0px;
+    font: 600 2.4em / 1.2 "Raleway", sans-serif;
     margin-bottom: 16px;
+    @media (max-width: 768px) {
+      font-size: 2em;
+      margin-bottom: 0px;
+    }
   }
   p {
-    color: rgba(255, 255, 255, 0.7);
+    margin: 0px;
     padding: 2px 0;
+    @media (max-width: 768px) {
+      font-size: 0.9em;
+      padding: 0;
+    }
   }
 `;
 const ButtonsWrap = styled.div`

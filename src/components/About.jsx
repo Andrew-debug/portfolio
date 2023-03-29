@@ -10,8 +10,10 @@ const MainContent = styled.div`
   max-width: 1140px;
   margin: ${(props) =>
     props.contentClosingDelay ? "0px calc(auto - 20px)" : "0px auto"};
-  /* margin: 0px auto; */
-  padding: 40px 24px 40px 24px;
+  padding: 40px 24px;
+  @media (max-width: 768px) {
+    padding: 10px 16px;
+  }
 `;
 
 const AboutWrap = styled.div`
@@ -22,6 +24,10 @@ const AboutWrap = styled.div`
     props.isNavOpen
       ? "rgb(28, 39, 72)"
       : "linear-gradient(45deg, rgb(28, 40, 73) 0%, rgb(36, 52, 95) 100%)"};
+  @media (max-width: 768px) {
+    padding: 10px;
+    flex-direction: column;
+  }
 `;
 
 const Left = styled.div`
@@ -29,17 +35,23 @@ const Left = styled.div`
   width: 75%;
   padding: 15px;
   color: white;
+  @media (max-width: 768px) {
+    flex-basis: 100%;
+    width: 100%;
+  }
   h1 {
-    font-weight: 600;
-    font-size: 40px;
-    line-height: 1.2;
-    font-family: Raleway, sans-serif;
+    margin: 0px;
+    font: 600 2.2em / 1.2 "Raleway", sans-serif;
+    color: rgb(255, 255, 255);
+    @media (max-width: 768px) {
+      font-size: 2em;
+    }
   }
   p {
     font-weight: 400;
     font-size: 16px;
     font-family: Raleway, sans-serif;
-    line-height: 1.7;
+    line-height: 1.6;
     margin: 12px 0px 0px;
     color: rgba(255, 255, 255, 0.7);
   }
@@ -56,28 +68,32 @@ const TechWorkWrap = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 24px 32px;
+  @media (max-width: 768px) {
+    padding: 0px;
+  }
 `;
 
 const Tech = styled.div`
   flex-basis: 100%;
   width: 100%;
   h2 {
-    font-size: 28px;
+    margin: 0px;
+    font: 600 1.8em / 1.2 "Raleway", sans-serif;
+    color: rgb(255, 255, 255);
     padding: 20px 15px 20px 0;
+    @media (max-width: 768px) {
+      font-size: 1.6em;
+    }
   }
 `;
 
-export default function About({
-  isNavOpen,
-  setisNavOpen,
-  contentClosingDelay,
-}) {
+export default function About({ isNavOpen, contentClosingDelay }) {
   return (
     <>
       <MainContent contentClosingDelay={contentClosingDelay}>
         <AboutWrap isNavOpen={isNavOpen}>
           <Left>
-            <h1>About Andrii Yatsenko</h1>
+            <h1>About me</h1>
             <p>
               I am a 27 years old passionate Fullstack Web Developer based in
               Stockholm, Sweden who enjoys building software. Very positive and

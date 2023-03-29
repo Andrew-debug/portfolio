@@ -31,8 +31,13 @@ const experience = [
 const Work = styled.div`
   h3 {
     padding: 20px 0 20px;
-    font-size: 32px;
-    font-weight: 400;
+    margin: 0px;
+    font: 600 1.8em / 1.2 "Raleway", sans-serif;
+    color: rgb(255, 255, 255);
+    padding: 20px 15px 20px 0;
+    @media (max-width: 768px) {
+      font-size: 1.6em;
+    }
   }
 `;
 
@@ -48,6 +53,13 @@ const WorkListItem = styled.li`
   flex-direction: row;
   margin-left: -8px;
   margin-right: -8px;
+  span {
+    flex: 0 0 180px;
+    padding-right: 15;
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
 `;
 
 const WorkDate = styled.span`
@@ -68,6 +80,14 @@ const WorkCity = styled.span`
 
 const Responsibilities = styled.div`
   padding-left: 15px;
+  h2 {
+    margin: 0px;
+    font: 600 1.33em / 1.2 "Raleway", sans-serif;
+    color: rgb(255, 255, 255);
+    @media (max-width: 768px) {
+      font-size: 1.15em;
+    }
+  }
   p {
     padding: 20px 0 40px;
     font-weight: 200;
@@ -94,10 +114,10 @@ function WorkPlaceComponent() {
         {experience.map((item, index) => {
           return (
             <WorkListItem key={index}>
-              <div style={{ flex: "0 0 180px", paddingRight: 15 }}>
+              <span>
                 <WorkDate>{item.date}</WorkDate>
                 <WorkCity>{item.city}</WorkCity>
-              </div>
+              </span>
               <div style={{ position: "relative", marginTop: 10 }}>
                 <div
                   style={{

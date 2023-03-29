@@ -90,7 +90,10 @@ const Card = styled.div`
   position: relative;
   width: 340px;
   height: 280px;
-  margin: 10px;
+  margin: 14px;
+  @media (max-width: 768px) {
+    margin: 14px 0;
+  }
   :hover ${CardCover} {
     transform: translateY(0);
     background: rgba(22, 32, 58, 0.5);

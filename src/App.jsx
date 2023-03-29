@@ -13,7 +13,13 @@ export default function App() {
   const [openingContent, setopeningContent] = useState(false);
   const [frameAllContent, setframeAllContent] = useState(false);
   return (
-    <div style={frameAllContent ? { height: "100vh", overflow: "hidden" } : {}}>
+    <div
+      style={
+        frameAllContent
+          ? { height: "100vh", overflow: "hidden" }
+          : { overflow: "hidden" }
+      }
+    >
       <BrowserRouter>
         <Root
           isNavOpen={isNavOpen}

@@ -7,35 +7,79 @@ const MainContent = styled.div`
   -webkit-box-pack: center;
   justify-content: center;
   min-height: 100vh;
-
-  /* overflow: hidden; */
+  overflow: hidden;
 `;
 const InnerContentWrap = styled.div`
   width: 100%;
   max-width: 1140px;
   margin: 0px auto;
   padding: 16px 24px;
-
-  /* overflow: hidden; */
+  @media (max-width: 768px) {
+    padding: 0px 16px;
+  }
 `;
 const InnerContent = styled.div`
   display: flex;
-  flex-direction: row;
-  margin-left: -16px;
-  margin-right: -16px;
+  flex-direction: column-reverse;
+  margin-left: 0px;
+  margin-right: 0px;
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    margin-left: -16px;
+    margin-right: -16px;
+  }
 `;
 
 const RightContent = styled.div`
   display: flex;
   flex-direction: column;
-  flex-basis: 75%;
-  width: 75%;
   margin-left: 0px;
   margin-right: 0px;
-  color: white;
-  font-family: Raleway, sans-serif;
-  font-weight: 200;
-  font-size: 20px;
+  @media (min-width: 768px) {
+    display: flex;
+    flex-basis: 66.6667%;
+    width: 66.6667%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  @media (min-width: 980px) {
+    display: flex;
+    flex-basis: 75%;
+    width: 75%;
+  }
+  p {
+    margin-top: 20px;
+    strong {
+      color: rgb(255, 255, 255);
+      margin: 0px;
+      font: 600 1.2em / 1.2 Raleway, sans-serif;
+    }
+  }
+  span:first-child {
+    margin: 0px;
+    font: 600 1.6em / 1.2 Raleway, sans-serif;
+    color: rgb(255, 255, 255);
+    @media (max-width: 768px) {
+      font-size: 1.45em;
+    }
+  }
+  span:last-child {
+    font: 600 1em / 1.2 Raleway, sans-serif;
+  }
+  h1 {
+    margin: 0px;
+    span {
+      color: rgb(226, 120, 108);
+    }
+    @media (max-width: 768px) {
+      font-size: 2em;
+    }
+  }
+  h1 span {
+    margin: 0px;
+    color: rgb(226, 120, 108);
+  }
 `;
 
 const RightContentButtonsWrap = styled.div`
@@ -47,7 +91,22 @@ const RightContentButtonsWrap = styled.div`
   margin-right: -8px;
 `;
 
-const LeftContent = styled.div``;
+const LeftContent = styled.div`
+  width: 250px;
+  height: 380px;
+  background-color: black;
+  margin: 10px 0;
+  @media (min-width: 768px) {
+    flex-basis: 33.3333%;
+    width: 33.3333%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  @media (min-width: 980px) {
+    flex-basis: 25%;
+    width: 25%;
+  }
+`;
 
 export default function Home({ isNavOpen, setisNavOpen, contentClosingDelay }) {
   return (
@@ -55,28 +114,16 @@ export default function Home({ isNavOpen, setisNavOpen, contentClosingDelay }) {
       <InnerContentWrap>
         <InnerContent>
           <RightContent>
-            <span style={{ fontWeight: "600", fontSize: 28 }}>Hey there,</span>
+            <span>Hey there,</span>
             <h1>
               my name is Andrii Yatsenko.
-              <br />I am a{" "}
-              <span style={{ color: "rgb(226, 120, 108)" }}>
-                Front-end Developer
-              </span>{" "}
-              based in Kyiv, Ukraine.
+              <br />I am a <span>Front-end Developer</span> based in Kyiv,
+              Ukraine.
             </h1>
-            <p
-              style={{
-                color: "rgba(255, 255, 255, 0.8)",
-                fontSize: 24,
-                fontWeight: "200",
-                lineHeight: 1.6,
-                marginTop: 20,
-              }}
-            >
-              Specialized in{" "}
-              <strong style={{ color: "white" }}>frontend development</strong>{" "}
-              with 1 year of experience in building the web and working with
-              technologies like React
+            <p>
+              Specialized in <strong>frontend development</strong> with 1 year
+              of experience in building the web and working with technologies
+              like React
             </p>
             <RightContentButtonsWrap>
               <Button text={"My portfolio"}></Button>

@@ -1,7 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
 import styled from "styled-components";
-73, 125, 189;
-22, 32, 58;
 const Header = styled.header`
   position: fixed;
   width: 80px;
@@ -18,6 +16,13 @@ const Header = styled.header`
   align-items: center;
   -webkit-box-pack: justify;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    flex-direction: row;
+    bottom: auto;
+    right: 0px;
+    width: auto;
+    height: 60px;
+  }
 `;
 
 const HeaderLogo = styled.a`
@@ -27,6 +32,10 @@ const HeaderLogo = styled.a`
   cursor: pointer;
   transition: background 0.2s ease 0s;
   background: rgb(226, 120, 108);
+  @media (max-width: 768px) {
+    width: 80px; //////
+    height: 60px;
+  }
 `;
 
 const NavButtonToggle = styled.button`
@@ -41,6 +50,10 @@ const NavButtonToggle = styled.button`
   justify-content: center;
   flex-direction: column;
   padding: 0px;
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 60px;
+  }
 `;
 
 const NavButtonContent = styled.div`
@@ -91,6 +104,14 @@ const SocialLinks = styled.div`
   flex-direction: column;
   ul {
     list-style: none;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    @media (max-width: 768px) {
+      margin: 25px 5px 0;
+      flex-direction: row;
+    }
   }
   ul li a svg {
     width: 26px;
@@ -118,7 +139,12 @@ const Nav = styled.nav`
   transition: transform 0.25s ease-in-out 0s;
   box-shadow: ${(props) =>
     props.isNavOpen ? "rgba(0, 0, 0, 0.1) 0px 0px 25px" : "none"};
-  ${(props) => props.isNavOpen && "transform: translateX(100%)"}
+  ${(props) => props.isNavOpen && "transform: translateX(100%)"};
+  @media (max-width: 768px) {
+    top: 60px;
+    left: -340px;
+    /* height: 100vh; */
+  }
 `;
 
 const NavLinks = styled.ul`
@@ -129,6 +155,9 @@ const NavLinks = styled.ul`
   margin: 0px;
   padding: 0px;
   list-style: none;
+  /* @media (max-width: 768px) {
+    flex: 0 0 0%;
+  } */
 `;
 
 const NavLinksUnit = styled.li`
@@ -160,9 +189,7 @@ const NavLinkSpanTitle = styled.h1`
   transition: color 0.2s ease 0s;
   color: rgb(255, 255, 255);
   margin: 0px;
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 1.2;
+  font: 600 1.6em / 1.2 "Raleway", sans-serif;
 `;
 
 const NavigLink = styled(NavLink)`
@@ -174,7 +201,7 @@ const NavigLink = styled(NavLink)`
   justify-content: center;
   position: relative;
   color: rgba(255, 255, 255, 0.75);
-  text-decoration: none !important;
+  text-decoration: none;
   &:before,
   &:after {
     content: "";
@@ -249,7 +276,9 @@ export default function Root({
     <>
       <Header>
         <HeaderLogo>
-          <>imgA</>
+          {/* media
+          width: 60px;
+          height: 60px; */}
         </HeaderLogo>
         <NavButtonToggle
           onClick={() => {

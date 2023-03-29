@@ -20,6 +20,39 @@ html {
 
 body {
   background: rgb(22, 32, 58);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 112.5%;
+  line-height: 1.6;
+  font-family: "Raleway", sans-serif;
+}
+@media (max-width: 980px) {
+  body {
+    font-size: 100%;
+  }
+}
+@media (max-width: 768px) {
+  body {
+    padding-left: 0px;
+    padding-top: 60px;
+  }
+}
+h1 {
+  font: 600 2.4em / 1.1 "Raleway", sans-serif;
+  color: rgb(255, 255, 255);
+}
+h2 {
+  font: 600 1.6em / 1.2 "Raleway", sans-serif;
+  color: rgb(255, 255, 255);
+}
+
+a {
+  color: rgb(226, 120, 108);
+  transition: color 0.2s ease 0s;
+  text-decoration: none;
+}
+p {
+  font: 300 1em / 1.6 "Raleway", sans-serif;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .active {

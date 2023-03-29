@@ -14,15 +14,20 @@ const HeaderWrap = styled.div`
   width: 100%;
   max-width: 1140px;
   margin: 0px auto;
-  padding: 0px 24px;
+  padding: 0px 30px;
   h1 {
-    font-size: 42px;
-    font-weight: 600;
+    margin: 0px;
+    @media (max-width: 768px) {
+      font-size: 2em;
+    }
   }
   p {
-    font-weight: 300;
-    font-size: 24px;
+    margin: 0px;
+    font: 300 1.1em / 1.6 "Raleway", sans-serif;
     color: rgba(255, 255, 255, 0.7);
+  }
+  @media (max-width: 768px) {
+    padding: 0px 24px;
   }
 `;
 const PortfolioSection = styled.div`
@@ -32,18 +37,18 @@ const PortfolioSection = styled.div`
 const PortfolioWrap = styled.div`
   width: 100%;
   max-width: 1140px;
-  margin: 12px auto;
-  padding: 0px 24px;
+  margin: 0 auto;
+  padding: 0 16px;
 `;
 
 const FilterWrap = styled.div`
   display: flex;
   flex-flow: row wrap;
-  margin-left: -4px;
-  margin-right: -4px;
+  margin: 0 14px;
 `;
 const FilterTag = styled.div`
-  padding: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
 `;
 const FilterButton = styled.button`
   display: inline-block;
@@ -62,8 +67,7 @@ const PortfolioWorkWrap = styled.div`
   flex-wrap: wrap;
   width: 100%;
   max-width: 1140px;
-  margin: 12px auto;
-  padding: 0px 24px;
+  margin: 0 auto;
 `;
 
 const EmptyContent = styled.div`
@@ -158,30 +162,30 @@ export default function Portfolio({}) {
               );
             })}
           </FilterWrap>
+          <PortfolioWorkWrap>
+            {filteredData().length > 0 ? (
+              <>
+                {filteredData().map((item, index) => {
+                  return (
+                    <PortfolioCard
+                      key={index}
+                      id={item.id}
+                      link={"https://www.google.com/"}
+                      title={item.title}
+                      description={item.description}
+                      image={item.image}
+                      techUsed={item.techUsed}
+                    />
+                  );
+                })}
+              </>
+            ) : (
+              <EmptyContent>
+                <h2>There's is no such project with all these filters on :C</h2>
+              </EmptyContent>
+            )}
+          </PortfolioWorkWrap>
         </PortfolioWrap>
-        <PortfolioWorkWrap>
-          {filteredData().length > 0 ? (
-            <>
-              {filteredData().map((item, index) => {
-                return (
-                  <PortfolioCard
-                    key={index}
-                    id={item.id}
-                    link={"https://www.google.com/"}
-                    title={item.title}
-                    description={item.description}
-                    image={item.image}
-                    techUsed={item.techUsed}
-                  />
-                );
-              })}
-            </>
-          ) : (
-            <EmptyContent>
-              <h2>There's is no such project with all these filters on :C</h2>
-            </EmptyContent>
-          )}
-        </PortfolioWorkWrap>
       </PortfolioSection>
       <GetInTouch />
     </>

@@ -8,6 +8,9 @@ const Wrap = styled.main`
   transition: transform 0.3s ease 0s;
   perspective: 500px;
   transform: translateZ(0px);
+  @media (max-width: 768px) {
+    padding-left: 0;
+  }
 `;
 
 const Container = styled.div`
@@ -40,6 +43,9 @@ const Container = styled.div`
       z-index: 998;
     }
     `}
+  }
+  @media (max-width: 768px) {
+    transform: ${(props) => props.isNavOpen && "translateX(340px)"};
   }
 `;
 
@@ -117,7 +123,7 @@ const Rofl1 = styled.div`
   height: 80px;
   background-color: black;
   z-index: 1000;
-  animation: ${roflRotation1} 2s infinite linear;
+  animation: ${roflRotation1} 2s linear;
 `;
 export default function AnimationLayout({
   isNavOpen,
