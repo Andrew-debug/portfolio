@@ -48,14 +48,6 @@ const RightContent = styled.div`
     flex-basis: 75%;
     width: 75%;
   }
-  p {
-    margin-top: 20px;
-    strong {
-      color: rgb(255, 255, 255);
-      margin: 0px;
-      font: 600 1.2em / 1.2 Raleway, sans-serif;
-    }
-  }
   span:first-child {
     margin: 0px;
     font: 600 1.6em / 1.2 Raleway, sans-serif;
@@ -65,7 +57,11 @@ const RightContent = styled.div`
     }
   }
   span:last-child {
-    font: 600 1em / 1.2 Raleway, sans-serif;
+    font: 400 1em / 1.2 Raleway, sans-serif;
+    @media (max-width: 768px) {
+      font: 400 1em / 1.2 Raleway, sans-serif;
+      padding: 5px;
+    }
   }
   h1 {
     margin: 0px;
@@ -79,6 +75,15 @@ const RightContent = styled.div`
   h1 span {
     margin: 0px;
     color: rgb(226, 120, 108);
+  }
+`;
+
+const RightContentParag = styled.p`
+  font: 400 1.2em / 1.8 Raleway, sans-serif;
+  margin-top: 20px;
+  @media (max-width: 768px) {
+    font: 400 1.2em / 1.6 Raleway, sans-serif;
+    margin: 10px 0px;
   }
 `;
 
@@ -108,7 +113,7 @@ const LeftContent = styled.div`
   }
 `;
 
-export default function Home({ isNavOpen, setisNavOpen, contentClosingDelay }) {
+export default function Home() {
   return (
     <MainContent>
       <InnerContentWrap>
@@ -120,14 +125,14 @@ export default function Home({ isNavOpen, setisNavOpen, contentClosingDelay }) {
               <br />I am a <span>Front-end Developer</span> based in Kyiv,
               Ukraine.
             </h1>
-            <p>
+            <RightContentParag>
               Specialized in <strong>frontend development</strong> with 1 year
               of experience in building the web and working with technologies
               like React
-            </p>
+            </RightContentParag>
             <RightContentButtonsWrap>
-              <Button text={"My portfolio"}></Button>
-              <Button text={"Get in touch"}></Button>
+              <Button margin="10px 10px" text={"My portfolio"}></Button>
+              <Button margin="10px 10px" text={"Get in touch"}></Button>
               <div>
                 <span>
                   or learn more{" "}
