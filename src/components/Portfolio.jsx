@@ -82,39 +82,22 @@ const EmptyContent = styled.div`
   }
 `;
 
-export default function Portfolio({}) {
+export default function Portfolio() {
   const [filter, setfilter] = useState({
     all: true,
     react: false,
     typescript: false,
     javascript: false,
+    html: false,
+    css: false,
   });
 
-  const filtersOn = Object.keys(filter).filter((key) => filter[key] !== false);
-
-  function filteredData() {
-    const dataItemCategories = [];
-    for (const i in data) {
-      dataItemCategories.push(data[i].categories);
-    }
-
-    const copiedData = [...data];
-    const newData = [];
-    if (filtersOn.length > 1) {
-      for (const i in dataItemCategories) {
-        if (_.isEqual(_.sortBy(filtersOn), _.sortBy(dataItemCategories[i]))) {
-          newData.push(data[i]);
-        }
-      }
-      return newData;
-    } else if (filtersOn.length === 1 && filtersOn[0] !== "all") {
-      const copiedData = data.filter((item) =>
-        item.categories.includes(filtersOn[0])
-      );
-      return copiedData;
-    }
-    return copiedData;
-  }
+  const filtersOn = Object.keys(filter).filter((key) => filter[key] === true);
+  const filteredData = data.filter(
+    (item) =>
+      _.intersection([...item.categories, "all"], filtersOn).length ===
+      filtersOn.length
+  );
 
   return (
     <>
@@ -143,6 +126,8 @@ export default function Portfolio({}) {
                           react: false,
                           typescript: false,
                           javascript: false,
+                          html: false,
+                          css: false,
                         });
                       } else {
                         const next = {
@@ -163,14 +148,14 @@ export default function Portfolio({}) {
             })}
           </FilterWrap>
           <PortfolioWorkWrap>
-            {filteredData().length > 0 ? (
+            {filteredData.length > 0 ? (
               <>
-                {filteredData().map((item, index) => {
+                {filteredData.map((item, index) => {
                   return (
                     <PortfolioCard
                       key={index}
                       id={item.id}
-                      link={"https://www.google.com/"}
+                      link={item.link}
                       title={item.title}
                       description={item.description}
                       image={item.image}

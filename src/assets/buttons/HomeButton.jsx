@@ -39,6 +39,17 @@ const Button = styled.button`
   font-family: inherit;
   font-weight: 600;
   margin: ${(props) => `${props.margin}`};
+  @media (max-width: 768px) {
+    margin: 5px 5px 0px 0px;
+    padding: 15px 30px;
+  }
+  p {
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    @media (max-width: 768px) {
+      font: 600 0.9em / 1.6 "Raleway", sans-serif;
+    }
+  }
   &:hover ${ButtonSpan}::before {
     transform: translate(-50%, -50%) rotate(-90deg);
     width: 100%;
@@ -53,7 +64,7 @@ const Button = styled.button`
   }
 `;
 
-function HomeButton({ text, width, type, margin = "20px 15px 20px 5px" }) {
+function HomeButton({ text, width, type, margin }) {
   return (
     <Button margin={margin} type={type} width={width}>
       <p>{text}</p>

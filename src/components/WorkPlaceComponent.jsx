@@ -55,7 +55,7 @@ const WorkListItem = styled.li`
   margin-right: -8px;
   span {
     flex: 0 0 180px;
-    padding-right: 15;
+    margin: 2px 10px;
     @media (max-width: 768px) {
       display: none;
     }

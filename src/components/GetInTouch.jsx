@@ -48,8 +48,8 @@ function GetInTouch() {
         <p>Do you have an interesting project I can help with?</p>
         <p>Feel free to reach out to me!</p>
         <ButtonsWrap>
-          <Button text={"Get in touch"} />
-          <Button text={"About me"} />
+          <Button width="205" margin="10px" text={"Get in touch"} />
+          <Button width="205" margin="10px" text={"About me"} />
         </ButtonsWrap>
       </Content>
     </Container>

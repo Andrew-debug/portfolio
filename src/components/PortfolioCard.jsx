@@ -16,10 +16,7 @@ const CardImage = styled.img`
   left: 0px;
   width: 100%;
   height: 100%;
-  /* object-fit: cover; */
-  /* object-position: center center; */
-  /* opacity: 0; */
-  /* transition-delay: 500ms; */
+  object-fit: cover;
 `;
 
 const CardCover = styled.div`
