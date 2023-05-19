@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Button from "../assets/buttons/HomeButton";
-
+import ay1 from "../assets/data/portfolioImages/ay-1.png";
 const MainContent = styled.div`
   display: flex;
   flex-direction: column;
@@ -31,7 +31,7 @@ const InnerContent = styled.div`
   }
 `;
 
-const RightContent = styled.div`
+const LeftContent = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 0px;
@@ -78,7 +78,7 @@ const RightContent = styled.div`
   }
 `;
 
-const RightContentParag = styled.p`
+const LeftContentParag = styled.p`
   font: 400 1.2em / 1.8 Raleway, sans-serif;
   margin-top: 20px;
   @media (max-width: 768px) {
@@ -87,7 +87,7 @@ const RightContentParag = styled.p`
   }
 `;
 
-const RightContentButtonsWrap = styled.div`
+const LeftContentButtonsWrap = styled.div`
   display: flex;
   flex-flow: row wrap;
   -webkit-box-align: center;
@@ -96,10 +96,9 @@ const RightContentButtonsWrap = styled.div`
   margin-right: -8px;
 `;
 
-const LeftContent = styled.div`
-  width: 250px;
-  height: 380px;
-  background-color: black;
+const RightContent = styled.div`
+  position: relative;
+  background-color: transparent;
   margin: 10px 0;
   @media (min-width: 768px) {
     flex-basis: 33.3333%;
@@ -113,24 +112,33 @@ const LeftContent = styled.div`
   }
 `;
 
+const RightImg = styled.img`
+  position: absolute;
+  top: -100px;
+  width: 220px;
+  @media (max-width: 1200px) {
+    display: none;
+  }
+`;
+
 export default function Home() {
   return (
     <MainContent>
       <InnerContentWrap>
         <InnerContent>
-          <RightContent>
+          <LeftContent>
             <span>Hey there,</span>
             <h1>
               my name is Andrii Yatsenko.
               <br />I am a <span>Front-end Developer</span> based in Kyiv,
               Ukraine.
             </h1>
-            <RightContentParag>
+            <LeftContentParag>
               Specialized in <strong>frontend development</strong> with 1 year
               of experience in building the web and working with technologies
               like React
-            </RightContentParag>
-            <RightContentButtonsWrap>
+            </LeftContentParag>
+            <LeftContentButtonsWrap>
               <Button margin="10px 10px" text={"My portfolio"}></Button>
               <Button margin="10px 10px" text={"Get in touch"}></Button>
               <div>
@@ -139,9 +147,11 @@ export default function Home() {
                   <a style={{ color: "rgb(226, 120, 108)" }}>about me.</a>
                 </span>
               </div>
-            </RightContentButtonsWrap>
+            </LeftContentButtonsWrap>
+          </LeftContent>
+          <RightContent>
+            <RightImg src={ay1} alt="logo" />
           </RightContent>
-          <LeftContent></LeftContent>
         </InnerContent>
       </InnerContentWrap>
     </MainContent>

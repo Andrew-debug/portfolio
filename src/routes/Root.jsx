@@ -1,4 +1,6 @@
 import { NavLink, useLocation } from "react-router-dom";
+import ay2 from "../assets/data/portfolioImages/ay-2.png";
+
 import styled from "styled-components";
 const Header = styled.header`
   position: fixed;
@@ -33,7 +35,17 @@ const HeaderLogo = styled.a`
   transition: background 0.2s ease 0s;
   background: rgb(226, 120, 108);
   @media (max-width: 768px) {
-    width: 80px; //////
+    width: 80px;
+    height: 60px;
+  }
+`;
+
+const HeaderLogoImg = styled.img`
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  @media (max-width: 768px) {
+    width: 60px;
     height: 60px;
   }
 `;
@@ -267,7 +279,6 @@ const data = [
 export default function Root({
   isNavOpen,
   setisNavOpen,
-  setcontentClosingDelay,
   setopeningContent,
   setframeAllContent,
 }) {
@@ -276,23 +287,9 @@ export default function Root({
     <>
       <Header>
         <HeaderLogo>
-          {/* media
-          width: 60px;
-          height: 60px; */}
+          <HeaderLogoImg src={ay2} alt="logo" />
         </HeaderLogo>
-        <NavButtonToggle
-          onClick={() => {
-            setisNavOpen((prev) => !prev);
-
-            if (!isNavOpen) {
-              setcontentClosingDelay(true);
-            } else {
-              setTimeout(() => {
-                setcontentClosingDelay(false);
-              }, 300);
-            }
-          }}
-        >
+        <NavButtonToggle onClick={() => setisNavOpen((prev) => !prev)}>
           <NavButtonSpan isNavOpen={isNavOpen}>
             <NavButtonContent isNavOpen={isNavOpen} />
             <NavButtonContent isNavOpen={isNavOpen} />
@@ -332,14 +329,6 @@ export default function Root({
                   }
                   onClick={() => {
                     setisNavOpen(false);
-
-                    if (!isNavOpen) {
-                      setcontentClosingDelay(true);
-                    } else {
-                      setTimeout(() => {
-                        setcontentClosingDelay(false);
-                      }, 300);
-                    }
 
                     if (pathname !== item.linkPathname) {
                       setTimeout(() => {

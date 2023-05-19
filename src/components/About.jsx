@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import GetInTouch from "./GetInTouch";
 import StackList from "./StackList";
 import WorkPlaceComponent from "./WorkPlaceComponent";
-
+import highResPortImage from "../assets/data/portfolioImages/portfolio-photo.jpg";
 const MainContent = styled.div`
   width: 100%;
   max-width: 1140px;
-  margin: ${(props) =>
-    props.contentClosingDelay ? "0px calc(auto - 20px)" : "0px auto"};
+  margin: 0 auto;
   padding: 40px 24px;
   @media (max-width: 768px) {
     padding: 10px 16px;
@@ -58,9 +57,19 @@ const Left = styled.div`
 `;
 
 const Right = styled.div`
-  background-color: black;
+  position: relative;
+  background-color: transparent;
+  margin-top: 15px;
   width: 250px;
-  height: 250px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 2px;
+`;
+
+const RightImage = styled.img`
+  position: absolute;
+  top: -70px;
+  width: 100%;
 `;
 
 const TechWorkWrap = styled.div`
@@ -87,6 +96,28 @@ const Tech = styled.div`
   }
 `;
 
+const AsyncImage = ({ imageSrc }) => {
+  const [loadedSrc, setLoadedSrc] = useState(null);
+  useEffect(() => {
+    setLoadedSrc(null);
+    if (imageSrc) {
+      const handleLoad = () => {
+        setLoadedSrc(imageSrc);
+      };
+      const image = new Image();
+      image.addEventListener("load", handleLoad);
+      image.src = imageSrc;
+      return () => {
+        image.removeEventListener("load", handleLoad);
+      };
+    }
+  }, [imageSrc]);
+  if (loadedSrc === imageSrc) {
+    return <RightImage src={imageSrc} />;
+  }
+  return null;
+};
+
 export default function About({ isNavOpen, contentClosingDelay }) {
   return (
     <>
@@ -112,7 +143,9 @@ export default function About({ isNavOpen, contentClosingDelay }) {
               weights.
             </p>
           </Left>
-          <Right />
+          <Right>
+            <AsyncImage imageSrc={highResPortImage} />
+          </Right>
         </AboutWrap>
         <TechWorkWrap>
           <Tech>

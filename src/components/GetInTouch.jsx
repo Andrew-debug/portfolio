@@ -5,7 +5,7 @@ const Container = styled.div`
   background: linear-gradient(45deg, rgb(36, 52, 95) 0%, rgb(28, 40, 73) 100%);
   padding-top: 60px;
   padding-bottom: 60px;
-  margin-top: 10px;
+  margin-top: 50px;
 `;
 const Content = styled.div`
   width: 100%;

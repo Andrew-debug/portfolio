@@ -88,8 +88,6 @@ export default function Portfolio() {
     react: false,
     typescript: false,
     javascript: false,
-    html: false,
-    css: false,
   });
 
   const filtersOn = Object.keys(filter).filter((key) => filter[key] === true);

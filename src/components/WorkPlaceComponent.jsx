@@ -90,9 +90,8 @@ const Responsibilities = styled.div`
   }
   p {
     padding: 20px 0 40px;
-    font-weight: 200;
-    font-size: 14;
-    line-height: 1.6;
+    font: 300 0.875em / 1.6 "Raleway", sans-serif;
+    color: rgba(255, 255, 255, 0.8);
   }
 `;
 

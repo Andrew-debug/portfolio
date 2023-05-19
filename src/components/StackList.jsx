@@ -38,7 +38,9 @@ const ItemWrap = styled.div`
     margin-right: 5px;
   }
   p {
-    margin-right: 10px;
+    margin-right: 20px;
+    padding-top: 3px;
+    font: 400 0.9em / 1.2 "Raleway", sans-serif;
     @media (max-width: 768px) {
       margin: 5px 10px 5px;
     }

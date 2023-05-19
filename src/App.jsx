@@ -24,7 +24,6 @@ export default function App() {
         <Root
           isNavOpen={isNavOpen}
           setisNavOpen={setisNavOpen}
-          setcontentClosingDelay={setcontentClosingDelay}
           setopeningContent={setopeningContent}
           setframeAllContent={setframeAllContent}
         />

@@ -14,8 +14,8 @@ const CardImage = styled.img`
   position: absolute;
   top: 0px;
   left: 0px;
-  width: 100%;
-  height: 100%;
+  width: 340px;
+  height: 190px;
   object-fit: cover;
 `;
 

@@ -14,9 +14,6 @@
   box-sizing: border-box;
   color: white;
 }
-html {
-  overflow-y: scroll;
-}
 
 body {
   background: rgb(22, 32, 58);
@@ -51,7 +48,7 @@ a {
   text-decoration: none;
 }
 p {
-  font: 300 1em / 1.6 "Raleway", sans-serif;
+  font: 200 1em / 1.6 "Raleway", sans-serif;
   color: rgba(255, 255, 255, 0.7);
 }
 

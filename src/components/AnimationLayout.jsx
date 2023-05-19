@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { motion } from "framer-motion";
 import styled, { keyframes } from "styled-components";
+import ay2 from "../assets/data/portfolioImages/ay-2.png";
 
 const Wrap = styled.main`
   position: relative;
@@ -13,10 +14,17 @@ const Wrap = styled.main`
   }
 `;
 
+const OutletWrap = styled.div`
+  height: 100vh;
+  overflow-y: scroll;
+  ::-webkit-scrollbar {
+    display: ${(props) => props.isNavOpen && "none"};
+  }
+`;
+
 const Container = styled.div`
   transform-origin: 100% 0px 0px;
   overflow: hidden;
-  height: ${(props) => (props.contentClosingDelay ? "100vh !important" : "")};
   transition: ${(props) =>
     props.isNavOpen
       ? "all 0.4s ease 0s"
@@ -111,25 +119,19 @@ const roflRotation1 = keyframes`
   }
  `;
 
-const Rofl = styled.div`
+const Logo = styled.img`
   width: 80px;
   height: 80px;
-  background-color: black;
-  z-index: 1000;
-  animation: ${roflRotation} 2s infinite linear;
-`;
-const Rofl1 = styled.div`
-  width: 80px;
-  height: 80px;
-  background-color: black;
-  z-index: 1000;
-  animation: ${roflRotation1} 2s linear;
+  object-fit: contain;
+  @media (max-width: 768px) {
+    width: 60px;
+    height: 60px;
+  }
 `;
 export default function AnimationLayout({
   isNavOpen,
   setisNavOpen,
   contentClosingDelay,
-  setcontentClosingDelay,
   openingContent,
 }) {
   return (
@@ -141,15 +143,11 @@ export default function AnimationLayout({
         isNavOpen={isNavOpen}
         onClick={() => {
           setisNavOpen(false);
-
-          if (isNavOpen) {
-            setTimeout(() => {
-              setcontentClosingDelay(false);
-            }, 300);
-          }
         }}
       >
-        <Outlet />
+        <OutletWrap isNavOpen={isNavOpen}>
+          <Outlet />
+        </OutletWrap>
       </Container>
       {!openingContent && (
         <Curtain
@@ -164,12 +162,12 @@ export default function AnimationLayout({
             },
           }}
         >
-          <Rofl></Rofl>
+          <Logo src={ay2} />
         </Curtain>
       )}
       {openingContent && (
         <ClosingCurtain openingContent={openingContent}>
-          <Rofl1></Rofl1>
+          <Logo src={ay2} />
         </ClosingCurtain>
       )}
     </Wrap>
