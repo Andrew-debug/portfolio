@@ -3,28 +3,28 @@ import styled from "styled-components";
 
 const experience = [
   {
-    date: "November 2020 - Present",
-    city: "Stockholm",
-    position: "Software Engineer",
-    company: "Nordnet Bank AB",
+    date: "May 2023 - Present",
+    city: "Kyiv",
+    position: "Front-end developer",
+    company: "CamShot Automation Systems",
     responsibilities:
-      "Currently working in a full-stack/devops team with a goal of building a bank in cloud using some of the latest technologies like Google Cloud Platform, Kubernetes + Istio, Java + Spring boot and React.",
+      "Well-versed in integrating RESTful APIs, leveraging third-party libraries, and ensuring seamless cross-browser compatibility. Delivering solutions that prioritize user satisfaction and align with strategic business objectives.",
   },
   {
-    date: "November 2020 - Present",
-    city: "Stockholm",
-    position: "Software Engineer",
-    company: "Nordnet Bank AB",
+    date: "September 2022 - May 2023",
+    city: "Kyiv",
+    position: "Front-end developer",
+    company: "Freelance",
     responsibilities:
-      "Currently working in a full-stack/devops team with a goal of building a bank in cloud using some of the latest technologies like Google Cloud Platform, Kubernetes + Istio, Java + Spring boot and React.",
+      "Intensive self-directed study and successful completion of diverse pet projects. Finished JavaScript course: 'The Complete JavaScript Course: From Zero to Expert!'. Started learning React after few month since the beginning. Become skilled in using Git for version control. Proficient with command line interfaces for efficient development workflows.",
   },
   {
-    date: "November 2020 - Present",
-    city: "Stockholm",
-    position: "Software Engineer",
-    company: "Nordnet Bank AB",
+    date: "September 2019 - November 2020",
+    city: "Kyiv",
+    position: "Front-end developer",
+    company: "Studying",
     responsibilities:
-      "Currently working in a full-stack/devops team with a goal of building a bank in cloud using some of the latest technologies like Google Cloud Platform, Kubernetes + Istio, Java + Spring boot and React.",
+      "Intensive self-directed study of HTML/CSS, JavaScript and third-party libraries. Became proficient in HTML5, CSS3, Sass/Scss, JavaScript (ES6), and responsive design.",
   },
 ];
 
@@ -54,7 +54,7 @@ const WorkListItem = styled.li`
   margin-left: -8px;
   margin-right: -8px;
   span {
-    flex: 0 0 180px;
+    flex: 0 0 240px;
     margin: 2px 10px;
     @media (max-width: 768px) {
       display: none;

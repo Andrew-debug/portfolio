@@ -1,5 +1,5 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-
 const ButtonSpan = styled.span`
   position: absolute;
   left: 0;
@@ -64,11 +64,13 @@ const Button = styled.button`
   }
 `;
 
-function HomeButton({ text, width, type, margin }) {
+function HomeButton({ text, width, type, margin, link }) {
   return (
     <Button margin={margin} type={type} width={width}>
-      <p>{text}</p>
-      <ButtonSpan></ButtonSpan>
+      <NavLink to={link}>
+        <p>{text}</p>
+        <ButtonSpan></ButtonSpan>
+      </NavLink>
     </Button>
   );
 }

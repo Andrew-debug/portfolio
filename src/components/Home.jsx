@@ -1,6 +1,12 @@
 import styled from "styled-components";
+import { NavLink, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+////
 import Button from "../assets/buttons/HomeButton";
 import ay1 from "../assets/data/portfolioImages/ay-1.png";
+import react from "../assets/icons/react.png";
+import typescript from "../assets/icons/typescript.png";
+import javaScript from "../assets/icons/javaScript.png";
 const MainContent = styled.div`
   display: flex;
   flex-direction: column;
@@ -57,7 +63,7 @@ const LeftContent = styled.div`
     }
   }
   span:last-child {
-    font: 400 1em / 1.2 Raleway, sans-serif;
+    font: 600 1em / 1.2 Raleway, sans-serif;
     @media (max-width: 768px) {
       font: 400 1em / 1.2 Raleway, sans-serif;
       padding: 5px;
@@ -121,7 +127,114 @@ const RightImg = styled.img`
   }
 `;
 
-export default function Home() {
+const Slider = styled.span`
+  position: relative;
+  height: 38px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+`;
+
+const AutoSlider = () => {
+  const [slider, setSlider] = useState(0);
+  const [sliderPosition, setsliderPosition] = useState({
+    transform: "translateY(0%)",
+  });
+  const data = [
+    {
+      tech: "React",
+      imgPath: react,
+    },
+    {
+      tech: "JavaScript",
+      imgPath: javaScript,
+    },
+    {
+      tech: "TypeScript",
+      imgPath: typescript,
+    },
+  ];
+  useEffect(() => {
+    const dataLength = Object.keys(data).length;
+    const moveSlider = () => {
+      const newPosition = {
+        transform: `translateY(-${33 * slider}%)`,
+      };
+      setsliderPosition(newPosition);
+      if (slider === dataLength - 1) {
+        setSlider(0);
+      } else {
+        setSlider(slider + 1);
+      }
+    };
+
+    setTimeout(() => {
+      moveSlider();
+    }, 2000);
+  }, [sliderPosition]);
+
+  return (
+    <Slider
+      style={{
+        position: "relative",
+        height: "38px",
+        overflow: "hidden",
+        display: "inline-block",
+        verticalAlign: "top",
+      }}
+    >
+      <span
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          transition: "transform 0.3s ease 0s",
+          ...sliderPosition,
+        }}
+      >
+        {data.map((item) => {
+          return (
+            <span
+              key={item.tech}
+              style={{ display: "flex", alignItems: "center", height: "38px" }}
+            >
+              <span style={{ display: "inline-block", marginRight: "6px" }}>
+                <img
+                  src={item.imgPath}
+                  alt="tech"
+                  style={{
+                    width: "24px",
+                    height: "24px",
+                    flexShrink: 0,
+                    display: "block",
+                  }}
+                />
+              </span>
+              <span style={{ fontWeight: 300, fontSize: 22 }}>{item.tech}</span>
+            </span>
+          );
+        })}
+      </span>
+    </Slider>
+  );
+};
+
+export default function Home({ setopeningContent, setframeAllContent }) {
+  const { pathname } = useLocation();
+  function triggerAnimation(currentPathname) {
+    if (pathname !== currentPathname) {
+      setTimeout(() => {
+        setopeningContent(true);
+      }, 500);
+      setTimeout(() => {
+        setopeningContent(false);
+      }, 1000);
+
+      setframeAllContent(true);
+      setTimeout(() => {
+        setframeAllContent(false);
+      }, 550);
+    }
+  }
   return (
     <MainContent>
       <InnerContentWrap>
@@ -136,17 +249,29 @@ export default function Home() {
             <LeftContentParag>
               Specialized in <strong>frontend development</strong> with 1 year
               of experience in building the web and working with technologies
-              like React
+              like <AutoSlider />
             </LeftContentParag>
             <LeftContentButtonsWrap>
-              <Button margin="10px 10px" text={"My portfolio"}></Button>
-              <Button margin="10px 10px" text={"Get in touch"}></Button>
-              <div>
-                <span>
-                  or learn more{" "}
-                  <a style={{ color: "rgb(226, 120, 108)" }}>about me.</a>
-                </span>
+              <div onClick={() => triggerAnimation("/portfolio")}>
+                <Button
+                  margin="10px 10px"
+                  text={"My portfolio"}
+                  link="/portfolio"
+                ></Button>
               </div>
+              <div onClick={() => triggerAnimation("/contact")}>
+                <Button
+                  margin="10px 10px"
+                  text={"Get in touch"}
+                  link="/contact"
+                ></Button>
+              </div>
+              <span onClick={() => triggerAnimation("/about")}>
+                or learn more{" "}
+                <NavLink to="/about" style={{ color: "rgb(226, 120, 108)" }}>
+                  about me.
+                </NavLink>
+              </span>
             </LeftContentButtonsWrap>
           </LeftContent>
           <RightContent>

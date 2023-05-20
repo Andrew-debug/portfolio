@@ -27,7 +27,7 @@ const Header = styled.header`
   }
 `;
 
-const HeaderLogo = styled.a`
+const HeaderLogo = styled.div`
   display: block;
   width: 80px;
   height: 80px;
@@ -283,12 +283,31 @@ export default function Root({
   setframeAllContent,
 }) {
   const { pathname } = useLocation();
+  function triggerAnimation(currentPathname) {
+    setisNavOpen(false);
+
+    if (pathname !== currentPathname) {
+      setTimeout(() => {
+        setopeningContent(true);
+      }, 500);
+      setTimeout(() => {
+        setopeningContent(false);
+      }, 1000);
+
+      setframeAllContent(true);
+      setTimeout(() => {
+        setframeAllContent(false);
+      }, 550);
+    }
+  }
   return (
     <>
       <Header>
-        <HeaderLogo>
-          <HeaderLogoImg src={ay2} alt="logo" />
-        </HeaderLogo>
+        <NavLink to="/" onClick={() => triggerAnimation("/")}>
+          <HeaderLogo>
+            <HeaderLogoImg src={ay2} alt="logo" />
+          </HeaderLogo>
+        </NavLink>
         <NavButtonToggle onClick={() => setisNavOpen((prev) => !prev)}>
           <NavButtonSpan isNavOpen={isNavOpen}>
             <NavButtonContent isNavOpen={isNavOpen} />
@@ -327,23 +346,7 @@ export default function Root({
                   className={({ isActive }) =>
                     isActive ? "active" : "inactive"
                   }
-                  onClick={() => {
-                    setisNavOpen(false);
-
-                    if (pathname !== item.linkPathname) {
-                      setTimeout(() => {
-                        setopeningContent(true);
-                      }, 500);
-                      setTimeout(() => {
-                        setopeningContent(false);
-                      }, 1000);
-
-                      setframeAllContent(true);
-                      setTimeout(() => {
-                        setframeAllContent(false);
-                      }, 550);
-                    }
-                  }}
+                  onClick={() => triggerAnimation(item.linkPathname)}
                   to={item.linkPathname}
                 >
                   <NavLinkSpanTitle>{item.title}</NavLinkSpanTitle>

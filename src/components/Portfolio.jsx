@@ -82,7 +82,7 @@ const EmptyContent = styled.div`
   }
 `;
 
-export default function Portfolio() {
+export default function Portfolio({ setopeningContent, setframeAllContent }) {
   const [filter, setfilter] = useState({
     all: true,
     react: false,
@@ -124,8 +124,6 @@ export default function Portfolio() {
                           react: false,
                           typescript: false,
                           javascript: false,
-                          html: false,
-                          css: false,
                         });
                       } else {
                         const next = {
@@ -170,7 +168,10 @@ export default function Portfolio() {
           </PortfolioWorkWrap>
         </PortfolioWrap>
       </PortfolioSection>
-      <GetInTouch />
+      <GetInTouch
+        setopeningContent={setopeningContent}
+        setframeAllContent={setframeAllContent}
+      />
     </>
   );
 }

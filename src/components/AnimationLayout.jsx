@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import { motion } from "framer-motion";
 import styled, { keyframes } from "styled-components";
 import ay2 from "../assets/data/portfolioImages/ay-2.png";
+import { useEffect, useState } from "react";
 
 const Wrap = styled.main`
   position: relative;
@@ -102,23 +103,6 @@ const ClosingCurtain = styled.div`
   animation: ${makeEntrance} 0.5s ease-out;
 `;
 
-const roflRotation = keyframes`
-    from {
-      transform: rotate(-359deg);
-    }
-    to {
-      transform: rotate(0deg);
-  }
- `;
-const roflRotation1 = keyframes`
-    from {
-      transform: rotate(0deg);
-  }
-    to {
-      transform: rotate(359deg);
-  }
- `;
-
 const Logo = styled.img`
   width: 80px;
   height: 80px;
@@ -134,16 +118,30 @@ export default function AnimationLayout({
   contentClosingDelay,
   openingContent,
 }) {
+  const [exit, setExit] = useState({
+    exit: initialContainer,
+  });
+
+  useEffect(() => {
+    if (!isNavOpen) {
+      setExit({
+        exit: {
+          transformOrigin: "100% 0px 0px",
+        },
+      });
+    } else {
+      setExit({ exit: initialContainer });
+    }
+  }, [isNavOpen]);
+
   return (
     <Wrap>
       <Container
         as={motion.div}
-        exit={initialContainer}
+        {...exit}
         contentClosingDelay={contentClosingDelay}
         isNavOpen={isNavOpen}
-        onClick={() => {
-          setisNavOpen(false);
-        }}
+        onClick={() => setisNavOpen(false)}
       >
         <OutletWrap isNavOpen={isNavOpen}>
           <Outlet />

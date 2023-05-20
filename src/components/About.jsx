@@ -118,33 +118,33 @@ const AsyncImage = ({ imageSrc }) => {
   return null;
 };
 
-export default function About({ isNavOpen, contentClosingDelay }) {
+export default function About({ setopeningContent, setframeAllContent }) {
   return (
     <>
-      <MainContent contentClosingDelay={contentClosingDelay}>
-        <AboutWrap isNavOpen={isNavOpen}>
+      <MainContent>
+        <AboutWrap>
           <Left>
             <h1>About me</h1>
             <p>
-              I am a 27 years old passionate Fullstack Web Developer based in
-              Stockholm, Sweden who enjoys building software. Very positive and
-              highly motivated person with over 9 years of experience in
-              building beautiful websites, web and mobile applications with a
-              stronger focus on the frontend technologies.
+              I am a 25 years old passionate{" "}
+              <strong>Front-end Developer</strong> based in Kyiv, Ukraine who
+              enjoys building web applications. Very positive and highly
+              motivated person with over 1 year of experience in building
+              beautiful websites and web applications.
             </p>
             <p>
-              Right now I work as a Software Engineer at Nordnet Bank AB, trying
-              to make investing and saving money easier for all people in the
-              Nordic countries.
+              Unfortunately, I'm unemployed right now, but I'm studying really
+              hard and trying to make my dreams come true. And one them is to
+              become a really cool front-end developer one day.
             </p>
             <p>
               Outside work I really enjoy cooking delicious food, playing chess
-              and video games, rewatching Marvel movies and lifting heavy
-              weights.
+              and video games, rewatching the Lord of the Ring movies and
+              reading books.
             </p>
           </Left>
           <Right>
-            <AsyncImage imageSrc={highResPortImage} />
+            <RightImage src={highResPortImage} alt="loh" />
           </Right>
         </AboutWrap>
         <TechWorkWrap>
@@ -155,7 +155,10 @@ export default function About({ isNavOpen, contentClosingDelay }) {
           <WorkPlaceComponent />
         </TechWorkWrap>
       </MainContent>
-      <GetInTouch />
+      <GetInTouch
+        setopeningContent={setopeningContent}
+        setframeAllContent={setframeAllContent}
+      />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Button from "../assets/buttons/HomeButton";
+import { useLocation } from "react-router-dom";
 const Container = styled.div`
   background: linear-gradient(45deg, rgb(36, 52, 95) 0%, rgb(28, 40, 73) 100%);
   padding-top: 60px;
@@ -40,7 +41,23 @@ const ButtonsWrap = styled.div`
   margin-right: -8px;
 `;
 
-function GetInTouch() {
+function GetInTouch({ setopeningContent, setframeAllContent }) {
+  const { pathname } = useLocation();
+  function triggerAnimation(currentPathname) {
+    if (pathname !== currentPathname) {
+      setTimeout(() => {
+        setopeningContent(true);
+      }, 500);
+      setTimeout(() => {
+        setopeningContent(false);
+      }, 1000);
+
+      setframeAllContent(true);
+      setTimeout(() => {
+        setframeAllContent(false);
+      }, 550);
+    }
+  }
   return (
     <Container>
       <Content>
@@ -48,8 +65,34 @@ function GetInTouch() {
         <p>Do you have an interesting project I can help with?</p>
         <p>Feel free to reach out to me!</p>
         <ButtonsWrap>
-          <Button width="205" margin="10px" text={"Get in touch"} />
-          <Button width="205" margin="10px" text={"About me"} />
+          <div onClick={() => triggerAnimation("/contact")}>
+            <Button
+              width="205"
+              margin="10px"
+              text={"Get in touch"}
+              link="/contact"
+            />
+          </div>
+          {pathname === "/portfolio" && (
+            <div onClick={() => triggerAnimation("/about")}>
+              <Button
+                width="205"
+                margin="10px"
+                text={"About me"}
+                link="/about"
+              />
+            </div>
+          )}
+          {pathname === "/about" && (
+            <div onClick={() => triggerAnimation("/portfolio")}>
+              <Button
+                width="205"
+                margin="10px"
+                text={"My Portfolio"}
+                link="/portfolio"
+              />
+            </div>
+          )}
         </ButtonsWrap>
       </Content>
     </Container>

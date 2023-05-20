@@ -3,8 +3,6 @@ import { BrowserRouter } from "react-router-dom";
 import { useState } from "react";
 
 import Root from "./routes/Root.jsx";
-// import ErrorPage from "./routes/ErrorPage.jsx";
-import AnimationLayout from "./components/AnimationLayout";
 import AnimatedRoutes from "./components/AnimatedRoutes";
 
 export default function App() {
@@ -33,6 +31,8 @@ export default function App() {
           contentClosingDelay={contentClosingDelay}
           setcontentClosingDelay={setcontentClosingDelay}
           openingContent={openingContent}
+          setopeningContent={setopeningContent}
+          setframeAllContent={setframeAllContent}
         />
       </BrowserRouter>
     </div>
