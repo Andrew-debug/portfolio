@@ -73,7 +73,7 @@ function GetInTouch({ setopeningContent, setframeAllContent }) {
               link="/contact"
             />
           </div>
-          {pathname === "/portfolio" && (
+          {pathname.startsWith("/portfolio") && (
             <div onClick={() => triggerAnimation("/about")}>
               <Button
                 width="205"

@@ -41,10 +41,12 @@ const HeaderLogo = styled.div`
 `;
 
 const HeaderLogoImg = styled.img`
-  width: 80px;
-  height: 80px;
+  margin: 5px;
+  width: 70px;
+  height: 70px;
   object-fit: contain;
   @media (max-width: 768px) {
+    margin: 0 10px;
     width: 60px;
     height: 60px;
   }

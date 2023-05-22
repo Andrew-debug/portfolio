@@ -54,21 +54,6 @@ const LeftContent = styled.div`
     flex-basis: 75%;
     width: 75%;
   }
-  span:first-child {
-    margin: 0px;
-    font: 600 1.6em / 1.2 Raleway, sans-serif;
-    color: rgb(255, 255, 255);
-    @media (max-width: 768px) {
-      font-size: 1.45em;
-    }
-  }
-  span:last-child {
-    font: 600 1em / 1.2 Raleway, sans-serif;
-    @media (max-width: 768px) {
-      font: 400 1em / 1.2 Raleway, sans-serif;
-      padding: 5px;
-    }
-  }
   h1 {
     margin: 0px;
     span {
@@ -124,6 +109,26 @@ const RightImg = styled.img`
   width: 220px;
   @media (max-width: 1200px) {
     display: none;
+  }
+`;
+
+const AboutMe = styled.div`
+  display: flex;
+  align-items: center;
+  font: 600 1em / 1.2 Raleway, sans-serif;
+  p {
+    font-weight: 600;
+    margin-left: 5px;
+    padding-top: 2px;
+    color: rgb(226, 120, 108);
+    @media (max-width: 768px) {
+      padding-top: 0;
+      font: 400 1em / 1.2 Raleway, sans-serif;
+    }
+  }
+  @media (max-width: 768px) {
+    font: 400 1em / 1.2 Raleway, sans-serif;
+    padding: 5px;
   }
 `;
 
@@ -209,7 +214,11 @@ const AutoSlider = () => {
                   }}
                 />
               </span>
-              <span style={{ fontWeight: 300, fontSize: 22 }}>{item.tech}</span>
+              <span
+                style={{ fontWeight: 400, fontSize: 20, letterSpacing: 1.5 }}
+              >
+                {item.tech}
+              </span>
             </span>
           );
         })}
@@ -240,7 +249,7 @@ export default function Home({ setopeningContent, setframeAllContent }) {
       <InnerContentWrap>
         <InnerContent>
           <LeftContent>
-            <span>Hey there,</span>
+            <span style={{ fontSize: 30, fontWeight: 600 }}>Hey there,</span>
             <h1>
               my name is Andrii Yatsenko.
               <br />I am a <span>Front-end Developer</span> based in Kyiv,
@@ -266,12 +275,12 @@ export default function Home({ setopeningContent, setframeAllContent }) {
                   link="/contact"
                 ></Button>
               </div>
-              <span onClick={() => triggerAnimation("/about")}>
-                or learn more{" "}
+              <AboutMe>
+                <span>or learn more </span>
                 <NavLink to="/about" style={{ color: "rgb(226, 120, 108)" }}>
-                  about me.
+                  <p onClick={() => triggerAnimation("/about")}>about me.</p>
                 </NavLink>
-              </span>
+              </AboutMe>
             </LeftContentButtonsWrap>
           </LeftContent>
           <RightContent>
