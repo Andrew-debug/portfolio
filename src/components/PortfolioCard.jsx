@@ -16,7 +16,7 @@ const CardImage = styled.img`
   left: 0px;
   width: 340px;
   height: 190px;
-  object-fit: cover;
+  object-fit: fill;
 `;
 
 const CardCover = styled.div`

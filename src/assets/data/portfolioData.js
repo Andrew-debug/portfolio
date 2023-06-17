@@ -7,9 +7,60 @@ import pf3 from "./portfolioImages/pf3.png";
 import threejs from "./portfolioImages/threejs.png";
 import shoppingCart from "./portfolioImages/shopping-cart.png";
 import bankist from "./portfolioImages/bankist.png";
+import carRentShowcase from "./portfolioImages/car-rent-showcase.png";
+import firstComProj from "./portfolioImages/first-com-proj.png";
+import chesscom from "./portfolioImages/chesscom.png";
 export default [
   {
     id: 1,
+    title: "Car renting showcase",
+    description:
+      "Beatiful design, mock app for renting cars and all data about them",
+    techUsed: [
+      "React",
+      "Typescrip",
+      "Next.js",
+      "Tailwind",
+      "Headless UI",
+      "SSR",
+    ],
+    categories: ["react", "typescript", "next.js"],
+    image: carRentShowcase,
+    link: "https://car-showcase-snowy.vercel.app/",
+  },
+  {
+    id: 2,
+    title: "Chess.com game reviewer",
+    description: "In development",
+    techUsed: [
+      "React",
+      "Typescript",
+      "Next.js",
+      "Styled-components",
+      "loadsh",
+      "stockfish.js",
+      "chess.js",
+    ],
+    categories: ["react", "typescript", "next.js"],
+    image: chesscom,
+    link: "",
+  },
+  {
+    id: 3,
+    title: "First commercial project",
+    description: "In development",
+    techUsed: [
+      "React",
+      "Styled-components",
+      "Material-UI",
+      "react-localization",
+    ],
+    categories: ["react"],
+    image: firstComProj,
+    link: "",
+  },
+  {
+    id: 4,
     title: "Current portfolio",
     description: "Responsive React portfolio",
     techUsed: ["React", "Styled-components"],
@@ -18,7 +69,7 @@ export default [
     link: "https://andrew-debug.github.io/portfolio/",
   },
   {
-    id: 2,
+    id: 5,
     title: "Shopping cart",
     description: "Responsive shooping cart with React",
     techUsed: ["React", "Mui"],
@@ -27,7 +78,7 @@ export default [
     link: "https://andrew-debug.github.io/shopping-cart/",
   },
   {
-    id: 3,
+    id: 6,
     title: "Bankist",
     description: "JavaScript only project from JS course ",
     techUsed: ["Javascript"],
@@ -36,7 +87,7 @@ export default [
     link: "https://andrew-debug.github.io/bankist-project/",
   },
   {
-    id: 4,
+    id: 7,
     title: "Second portfolio",
     description: "Fully responsive multi page portfolio ",
     techUsed: ["Javascript", "HTML", "CSS"],
@@ -45,7 +96,7 @@ export default [
     link: "https://andrew-debug.github.io/portfoliov2/build/index.html",
   },
   {
-    id: 5,
+    id: 8,
     title: "Blooger",
     description: "Responsive website with animations.",
     techUsed: ["Javascript", "jQuery", "HTML", "CSS"],
@@ -54,7 +105,7 @@ export default [
     link: "https://andrew-debug.github.io/Blooger-layout/",
   },
   {
-    id: 6,
+    id: 9,
     title: "Three.js",
     description:
       "Three.js try-out with a little bit of layout and nice animations. ",
@@ -64,7 +115,7 @@ export default [
     link: "https://andrew-debug.github.io/three.js-testing/",
   },
   {
-    id: 7,
+    id: 10,
     title: "Very first portfolio",
     description: "A bit of javascript and HTML with CSS. ",
     techUsed: ["Javascript", "HTML", "CSS"],
@@ -73,7 +124,7 @@ export default [
     link: "https://andrew-debug.github.io/portfoliov1/build/index.html",
   },
   {
-    id: 8,
+    id: 11,
     title: "Mojo",
     description: "HTML and CSS practising.",
     techUsed: ["HTML", "CSS"],
@@ -82,7 +133,7 @@ export default [
     link: "https://andrew-debug.github.io/Mojopractise/",
   },
   {
-    id: 9,
+    id: 12,
     title: "ActiveBox",
     description: "HTML and CSS practising.",
     techUsed: ["HTML", "CSS"],

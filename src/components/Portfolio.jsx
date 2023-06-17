@@ -88,6 +88,7 @@ export default function Portfolio({ setopeningContent, setframeAllContent }) {
     react: false,
     typescript: false,
     javascript: false,
+    "next.js": false,
   });
 
   const filtersOn = Object.keys(filter).filter((key) => filter[key] === true);

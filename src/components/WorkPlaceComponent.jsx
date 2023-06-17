@@ -3,28 +3,20 @@ import styled from "styled-components";
 
 const experience = [
   {
-    date: "May 2023 - Present",
+    date: "2023 - Present",
     city: "Kyiv",
-    position: "Front-end developer",
-    company: "CamShot Automation Systems",
-    responsibilities:
-      "Well-versed in integrating RESTful APIs, leveraging third-party libraries, and ensuring seamless cross-browser compatibility. Delivering solutions that prioritize user satisfaction and align with strategic business objectives.",
-  },
-  {
-    date: "September 2022 - May 2023",
-    city: "Kyiv",
-    position: "Front-end developer",
+    position: "React Developer",
     company: "Freelance",
     responsibilities:
-      "Intensive self-directed study and successful completion of diverse pet projects. Finished JavaScript course: 'The Complete JavaScript Course: From Zero to Expert!'. Started learning React after few month since the beginning. Become skilled in using Git for version control. Proficient with command line interfaces for efficient development workflows.",
+      "Deploying a website from A to Z. Building responsive websites using Figma templates or creating custom designs. Collaborating effectively with other developers to implement complex functionality based onclient specifications. Proactively communicating with clients to gain a deeper understanding of their needs and deliver optimal solutions.",
   },
   {
-    date: "September 2019 - November 2020",
+    date: "2021 - 2023",
     city: "Kyiv",
     position: "Front-end developer",
     company: "Studying",
     responsibilities:
-      "Intensive self-directed study of HTML/CSS, JavaScript and third-party libraries. Became proficient in HTML5, CSS3, Sass/Scss, JavaScript (ES6), and responsive design.",
+      "Intensive self-directed study and successful completion of diverse pet projects. Finished JavaScript course: 'The Complete JavaScript Course: From Zero to Expert!'. Started learning React after few month since the beginning. Become skilled in using Git for version control. Proficient with command line interfaces for efficient development workflows. Intensive self-directed study of HTML/CSS, JavaScript and third-party libraries. Became proficient in HTML5, CSS3, Sass/Scss, JavaScript (ES6), and responsive design.",
   },
 ];
 
