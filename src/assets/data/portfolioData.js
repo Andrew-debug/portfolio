@@ -10,15 +10,32 @@ import bankist from "./portfolioImages/bankist.png";
 import carRentShowcase from "./portfolioImages/car-rent-showcase.png";
 import firstComProj from "./portfolioImages/first-com-proj.png";
 import chesscom from "./portfolioImages/chesscom.png";
+import flexibble from "./portfolioImages/Flexibble.png";
 export default [
   {
     id: 1,
+    title: "Dribbble clone",
+    description: "Sign in and upload your project",
+    techUsed: [
+      "React",
+      "Typescript",
+      "Next.js",
+      "GraphQL",
+      "NextAuth",
+      "Cloudinary",
+    ],
+    categories: ["react", "typescript", "next.js", "graphql"],
+    image: flexibble,
+    link: "https://dribbble-clone-ten.vercel.app/",
+  },
+  {
+    id: 2,
     title: "Car renting showcase",
     description:
       "Beatiful design, mock app for renting cars and all data about them",
     techUsed: [
       "React",
-      "Typescrip",
+      "Typescript",
       "Next.js",
       "Tailwind",
       "Headless UI",
@@ -29,56 +46,43 @@ export default [
     link: "https://car-showcase-snowy.vercel.app/",
   },
   {
-    id: 2,
+    id: 3,
     title: "Chess.com game reviewer",
     description: "In development",
-    techUsed: [
-      "React",
-      "Typescript",
-      "Next.js",
-      "Styled-components",
-      "loadsh",
-      "stockfish.js",
-      "chess.js",
-    ],
+    techUsed: ["React", "Typescript", "Next.js", "Styled-components"],
     categories: ["react", "typescript", "next.js"],
     image: chesscom,
     link: "",
   },
   {
-    id: 3,
+    id: 4,
     title: "First commercial project",
     description: "In development",
-    techUsed: [
-      "React",
-      "Styled-components",
-      "Material-UI",
-      "react-localization",
-    ],
+    techUsed: ["React", "Styled-components", "Material-UI", "React Router"],
     categories: ["react"],
     image: firstComProj,
     link: "",
   },
   {
-    id: 4,
+    id: 5,
     title: "Current portfolio",
     description: "Responsive React portfolio",
-    techUsed: ["React", "Styled-components"],
+    techUsed: ["React", "Styled-components", "React Router", "Framer-motion"],
     categories: ["react"],
     image: pf3,
     link: "https://andrew-debug.github.io/portfolio/",
   },
   {
-    id: 5,
+    id: 6,
     title: "Shopping cart",
-    description: "Responsive shooping cart with React",
-    techUsed: ["React", "Mui"],
+    description: "Responsive shooping cart with Material-UI",
+    techUsed: ["React", "Material-UI"],
     categories: ["react"],
     image: shoppingCart,
     link: "https://andrew-debug.github.io/shopping-cart/",
   },
   {
-    id: 6,
+    id: 7,
     title: "Bankist",
     description: "JavaScript only project from JS course ",
     techUsed: ["Javascript"],
@@ -87,7 +91,7 @@ export default [
     link: "https://andrew-debug.github.io/bankist-project/",
   },
   {
-    id: 7,
+    id: 8,
     title: "Second portfolio",
     description: "Fully responsive multi page portfolio ",
     techUsed: ["Javascript", "HTML", "CSS"],
@@ -96,7 +100,7 @@ export default [
     link: "https://andrew-debug.github.io/portfoliov2/build/index.html",
   },
   {
-    id: 8,
+    id: 9,
     title: "Blooger",
     description: "Responsive website with animations.",
     techUsed: ["Javascript", "jQuery", "HTML", "CSS"],
@@ -105,7 +109,7 @@ export default [
     link: "https://andrew-debug.github.io/Blooger-layout/",
   },
   {
-    id: 9,
+    id: 10,
     title: "Three.js",
     description:
       "Three.js try-out with a little bit of layout and nice animations. ",
@@ -115,7 +119,7 @@ export default [
     link: "https://andrew-debug.github.io/three.js-testing/",
   },
   {
-    id: 10,
+    id: 11,
     title: "Very first portfolio",
     description: "A bit of javascript and HTML with CSS. ",
     techUsed: ["Javascript", "HTML", "CSS"],
@@ -124,7 +128,7 @@ export default [
     link: "https://andrew-debug.github.io/portfoliov1/build/index.html",
   },
   {
-    id: 11,
+    id: 12,
     title: "Mojo",
     description: "HTML and CSS practising.",
     techUsed: ["HTML", "CSS"],
@@ -133,7 +137,7 @@ export default [
     link: "https://andrew-debug.github.io/Mojopractise/",
   },
   {
-    id: 12,
+    id: 13,
     title: "ActiveBox",
     description: "HTML and CSS practising.",
     techUsed: ["HTML", "CSS"],

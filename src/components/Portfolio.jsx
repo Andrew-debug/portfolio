@@ -89,6 +89,7 @@ export default function Portfolio({ setopeningContent, setframeAllContent }) {
     typescript: false,
     javascript: false,
     "next.js": false,
+    graphql: false,
   });
 
   const filtersOn = Object.keys(filter).filter((key) => filter[key] === true);
@@ -125,6 +126,8 @@ export default function Portfolio({ setopeningContent, setframeAllContent }) {
                           react: false,
                           typescript: false,
                           javascript: false,
+                          "next.js": false,
+                          graphql: false,
                         });
                       } else {
                         const next = {
