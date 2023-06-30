@@ -18,7 +18,7 @@ export default function App() {
           : { overflow: "hidden" }
       }
     >
-      <BrowserRouter>
+      <BrowserRouter basename="/portfolio">
         <Root
           isNavOpen={isNavOpen}
           setisNavOpen={setisNavOpen}

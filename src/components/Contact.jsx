@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import Button from "../assets/buttons/HomeButton";
+import emailjs from "@emailjs/browser";
 const MainContent = styled.div`
   display: flex;
   flex-direction: column;
@@ -139,7 +140,35 @@ const Group = styled.div`
     color: rgba(255, 255, 255, 0.7);
   }
 `;
+
+const Success = styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 230px;
+  height: 50px;
+  background-color: green;
+  transform: ${({ isSuccess }) =>
+    isSuccess ? "translateY(25px)" : "translateY(-40px)"};
+  transition: all 0.3s ease-out;
+`;
+const Fail = styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 230px;
+  height: 50px;
+  background-color: #b90505;
+  transform: ${({ isFailed }) =>
+    isFailed ? "translateY(25px)" : "translateY(-40px)"};
+  transition: all 0.3s ease-out;
+`;
 export default function Contact() {
+  const ref = useRef();
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isFailed, setIsFailed] = useState(false);
   const [formData, setformData] = useState({
     name: "",
     email: "",
@@ -147,91 +176,132 @@ export default function Contact() {
   });
   const handleSubmit = (e) => {
     e.preventDefault();
+    emailjs
+      .sendForm(
+        "service_4kzbajh",
+        "template_1wre01t",
+        ref.current,
+        "eRa4JVe7K5lEITr0w"
+      )
+      .then(
+        (result) => {
+          setIsSuccess(true);
+          setTimeout(() => {
+            setIsSuccess(false);
+          }, 2000);
+        },
+        (error) => {
+          setIsFailed(true);
+          setTimeout(() => {
+            setIsFailed(false);
+          }, 2000);
+        }
+      );
   };
   const handleChange = (e) => {
     setformData({ ...formData, [e.target.name]: e.target.value });
   };
   return (
-    <MainContent>
-      <ContactContent>
-        <h1>Contact</h1>
-        <LeftRightWrap>
-          <Left>
-            <h2>Where to find me</h2>
-            <p>
-              Do you have an interesting project I can help with? Feel free to
-              reach out to me by using one of the following:
-            </p>
-            <ul>
-              <li>
-                Email{" "}
-                <strong>
-                  <a href="">yatsenkoandy97@gmail.com</a>
-                </strong>
-              </li>
-              <li>
-                LinkedIn{" "}
-                <strong>
-                  <a href="">yatsenko-andy</a>
-                </strong>
-              </li>
-              <li>
-                Github{" "}
-                <strong>
-                  <a href="">Andrew-debug</a>
-                </strong>
-              </li>
-            </ul>
-            <p>You can also use the contact form on this page.</p>
-          </Left>
-          <Right>
-            <h2>Contact Form</h2>
-            <Form onSubmit={handleSubmit}>
-              <FormContentWrap>
-                <Group>
-                  <label htmlFor="name"></label>
-                  <span>Full name</span>
-                  <input
-                    placeholder="Enter your full name..."
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
+    <>
+      <div
+        style={{
+          position: "relative",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Success isSuccess={isSuccess}>Email sent</Success>
+        <Fail isFailed={isFailed}>Something went wrong</Fail>
+      </div>
+      <MainContent>
+        <ContactContent>
+          <h1>Contact</h1>
+          <LeftRightWrap>
+            <Left>
+              <h2>Where to find me</h2>
+              <p>
+                Do you have an interesting project I can help with? Feel free to
+                reach out to me by using one of the following:
+              </p>
+              <ul>
+                <li>
+                  Email{" "}
+                  <strong>
+                    <a href="">yatsenkoandy97@gmail.com</a>
+                  </strong>
+                </li>
+                <li>
+                  LinkedIn{" "}
+                  <strong>
+                    <a
+                      href="https://www.linkedin.com/in/yatsenkoandy/"
+                      target="_blank"
+                    >
+                      yatsenko-andy
+                    </a>
+                  </strong>
+                </li>
+                <li>
+                  Github{" "}
+                  <strong>
+                    <a href="https://github.com/Andrew-debug" target="_blank">
+                      Andrew-debug
+                    </a>
+                  </strong>
+                </li>
+              </ul>
+              <p>You can also use the contact form on this page.</p>
+            </Left>
+            <Right>
+              <h2>Contact Form</h2>
+              <Form ref={ref} onSubmit={(e) => handleSubmit(e)}>
+                <FormContentWrap>
+                  <Group>
+                    <label htmlFor="name" />
+                    <span>Full name</span>
+                    <input
+                      placeholder="Enter your full name..."
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                    />
+                  </Group>
+                  <Group>
+                    <label htmlFor="name" />
+                    <span>Email</span>
+                    <input
+                      placeholder="Enter your email..."
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                    />
+                  </Group>
+                  <Group>
+                    <label htmlFor="name" />
+                    <span>Message</span>
+                    <textarea
+                      placeholder="Enter your full name..."
+                      name="message"
+                      rows="10"
+                      value={formData.message}
+                      onChange={handleChange}
+                    ></textarea>
+                  </Group>
+                  <Button
+                    type="submit"
+                    text="Submit"
+                    margin="15px 0 0"
+                    width="200"
                   />
-                </Group>
-                <Group>
-                  <label htmlFor="name"></label>
-                  <span>Email</span>
-                  <input
-                    placeholder="Enter your email..."
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                  />
-                </Group>
-                <Group>
-                  <label htmlFor="name"></label>
-                  <span>Message</span>
-                  <textarea
-                    placeholder="Enter your full name..."
-                    name="message"
-                    rows="10"
-                    value={formData.message}
-                    onChange={handleChange}
-                  ></textarea>
-                </Group>
-                <Button
-                  type="submit"
-                  text="Submit"
-                  margin="15px 0 0"
-                  width="200"
-                />
-              </FormContentWrap>
-            </Form>
-          </Right>
-        </LeftRightWrap>
-      </ContactContent>
-    </MainContent>
+                </FormContentWrap>
+              </Form>
+            </Right>
+          </LeftRightWrap>
+        </ContactContent>
+      </MainContent>
+    </>
   );
 }

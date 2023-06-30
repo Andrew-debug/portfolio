@@ -256,7 +256,7 @@ export default function Home({ setopeningContent, setframeAllContent }) {
               Ukraine.
             </h1>
             <LeftContentParag>
-              Specialized in <strong>frontend development</strong> with 1 year
+              Specialized in <strong>frontend development</strong> with 2 years
               of experience in building the web and working with technologies
               like <AutoSlider />
             </LeftContentParag>

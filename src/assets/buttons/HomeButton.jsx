@@ -67,10 +67,17 @@ const Button = styled.button`
 function HomeButton({ text, width, type, margin, link }) {
   return (
     <Button margin={margin} type={type} width={width}>
-      <NavLink to={link}>
-        <p>{text}</p>
-        <ButtonSpan></ButtonSpan>
-      </NavLink>
+      {type === "submit" ? (
+        <>
+          <p>{text}</p>
+          <ButtonSpan></ButtonSpan>
+        </>
+      ) : (
+        <NavLink to={link}>
+          <p>{text}</p>
+          <ButtonSpan></ButtonSpan>
+        </NavLink>
+      )}
     </Button>
   );
 }

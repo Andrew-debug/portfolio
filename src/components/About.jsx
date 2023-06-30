@@ -89,7 +89,7 @@ const Tech = styled.div`
     margin: 0px;
     font: 600 1.8em / 1.2 "Raleway", sans-serif;
     color: rgb(255, 255, 255);
-    padding: 20px 15px 20px 0;
+    padding: 20px 15px 5px 0;
     @media (max-width: 768px) {
       font-size: 1.6em;
     }
@@ -126,10 +126,10 @@ export default function About({ setopeningContent, setframeAllContent }) {
           <Left>
             <h1>About me</h1>
             <p>
-              I am a 25 years old passionate{" "}
+              I am a 25 years old passionate
               <strong>Front-end Developer</strong> based in Kyiv, Ukraine who
               enjoys building web applications. Very positive and highly
-              motivated person with over 1 year of experience in building
+              motivated person with over 2 years of experience in building
               beautiful websites and web applications.
             </p>
             <p>

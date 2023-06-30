@@ -9,16 +9,40 @@ import react from "../assets/icons/react.png";
 import styledComponents from "../assets/icons/styled-components.png";
 import typescript from "../assets/icons/typescript.png";
 import git from "../assets/icons/git.png";
+import figma from "../assets/icons/icons8-figma.svg";
+import graphql from "../assets/icons/icons8-graphql.svg";
+import material from "../assets/icons/icons8-material-ui.svg";
+import nodejs from "../assets/icons/icons8-node-js.svg";
+import sass from "../assets/icons/icons8-sass.svg";
+import tailwind from "../assets/icons/icons8-tailwind-css.svg";
+import nextjs from "../assets/icons/next-js.svg";
+import reacttestlib from "../assets/icons/octopus-64x64.png";
+import reactRouter from "../assets/icons/react-router.svg";
+import redux from "../assets/icons/redux.svg";
+import vite from "../assets/icons/vitejs.svg";
+import vitest from "../assets/icons/vitest.svg";
 
 const list = [
   { img: javaScript, techName: "JavaScript" },
   { img: react, techName: "React" },
   { img: typescript, techName: "TypeScript" },
+  { img: nextjs, techName: "Next.js" },
+  { img: nodejs, techName: "Node.js" },
+  { img: redux, techName: "Redux" },
+  { img: material, techName: "Material-UI" },
+  { img: reacttestlib, techName: "React Testing Library" },
+  { img: vite, techName: "Vite" },
+  { img: vitest, techName: "Vitest" },
+  { img: git, techName: "Git" },
+  { img: reactRouter, techName: "react-router" },
+  { img: graphql, techName: "GraphQL" },
+  { img: styledComponents, techName: "styled-components" },
+  { img: tailwind, techName: "Tailwind.css" },
+  { img: sass, techName: "Sass" },
   { img: html5, techName: "HTML" },
   { img: css3, techName: "CSS" },
-  { img: git, techName: "Git" },
-  { img: styledComponents, techName: "styled-components" },
   { img: npm, techName: "NPM" },
+  { img: figma, techName: "Figma" },
   { img: photoshop, techName: "Photoshop" },
 ];
 
@@ -32,6 +56,7 @@ const ItemWrap = styled.div`
   flex-direction: row;
   -webkit-box-align: center;
   align-items: center;
+  margin-top: 10px;
   img {
     width: 24px;
     height: 24px;

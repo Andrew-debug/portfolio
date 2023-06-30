@@ -89,6 +89,7 @@ export default function Portfolio({ setopeningContent, setframeAllContent }) {
     typescript: false,
     javascript: false,
     "next.js": false,
+    "material-ui": false,
     graphql: false,
   });
 
@@ -127,6 +128,7 @@ export default function Portfolio({ setopeningContent, setframeAllContent }) {
                           typescript: false,
                           javascript: false,
                           "next.js": false,
+                          "material-ui": false,
                           graphql: false,
                         });
                       } else {
