@@ -14,6 +14,15 @@ import flexibble from "./portfolioImages/Flexibble.png";
 export default [
   {
     id: 1,
+    title: "Chess.com game reviewer",
+    description: "Chess.com game analysis section clone",
+    techUsed: ["React", "Typescript", "Styled-components"],
+    categories: ["react", "typescript"],
+    image: chesscom,
+    link: "https://andrew-debug.github.io/chessreviewapp/",
+  },
+  {
+    id: 2,
     title: "Dribbble clone",
     description: "Sign in and upload your project",
     techUsed: [
@@ -29,7 +38,7 @@ export default [
     link: "https://dribbble-clone-ten.vercel.app/",
   },
   {
-    id: 2,
+    id: 3,
     title: "Car renting showcase",
     description: "Car renting app. Practising SSR components.",
     techUsed: [
@@ -43,15 +52,6 @@ export default [
     categories: ["react", "typescript", "next.js"],
     image: carRentShowcase,
     link: "https://car-showcase-snowy.vercel.app/",
-  },
-  {
-    id: 3,
-    title: "Chess.com game reviewer",
-    description: "In development",
-    techUsed: ["React", "Typescript", "Next.js", "Styled-components"],
-    categories: ["react", "typescript", "next.js"],
-    image: chesscom,
-    link: "",
   },
   {
     id: 4,
