@@ -8,9 +8,10 @@ import threejs from "./portfolioImages/threejs.png";
 import shoppingCart from "./portfolioImages/shopping-cart.png";
 import bankist from "./portfolioImages/bankist.png";
 import carRentShowcase from "./portfolioImages/car-rent-showcase.png";
-import firstComProj from "./portfolioImages/first-com-proj.png";
+import tictactoe from "./portfolioImages/tictactoe.png";
 import chesscom from "./portfolioImages/chesscom.png";
 import flexibble from "./portfolioImages/Flexibble.png";
+import mapty from "./portfolioImages/mapty.jpg";
 export default [
   {
     id: 1,
@@ -55,15 +56,24 @@ export default [
   },
   {
     id: 4,
-    title: "First commercial project",
-    description: "In development",
-    techUsed: ["React", "Styled-components", "Material-UI", "React Router"],
-    categories: ["react", "material-ui"],
-    image: firstComProj,
-    link: "",
+    title: "Tic-Tac-Toe",
+    description: "Both single and multiplayer available",
+    techUsed: ["React", "Typescript", "Styled-components"],
+    categories: ["react", "typescript"],
+    image: tictactoe,
+    link: "https://andrew-debug.github.io/tictactoe/",
   },
   {
     id: 5,
+    title: "Clone of mapty",
+    description: "Practising with map API",
+    techUsed: ["JavaScript", "HTML", "CSS"],
+    categories: ["javascript"],
+    image: mapty,
+    link: "https://andrew-debug.github.io/mapty/",
+  },
+  {
+    id: 6,
     title: "Shopping cart",
     description: "Responsive shooping cart with Material-UI",
     techUsed: ["React", "Material-UI"],
@@ -72,7 +82,7 @@ export default [
     link: "https://andrew-debug.github.io/shopping-cart/",
   },
   {
-    id: 6,
+    id: 7,
     title: "Three.js",
     description: "Three.js try-out. Practising 3D model implementation ",
     techUsed: ["React", "Three.js", "Styled-components"],
@@ -81,7 +91,7 @@ export default [
     link: "https://andrew-debug.github.io/three.js-testing/",
   },
   {
-    id: 7,
+    id: 8,
     title: "Current portfolio",
     description: "Responsive React portfolio",
     techUsed: ["React", "Styled-components", "React Router", "Framer-motion"],
@@ -90,43 +100,43 @@ export default [
     link: "https://andrew-debug.github.io/portfolio/",
   },
   {
-    id: 8,
+    id: 9,
     title: "Second portfolio",
     description: "Fully responsive multi page portfolio ",
-    techUsed: ["Javascript", "HTML", "CSS"],
+    techUsed: ["JavaScript", "HTML", "CSS"],
     categories: ["javascript"],
     image: pf2,
     link: "https://andrew-debug.github.io/portfoliov2/build/index.html",
   },
   {
-    id: 9,
+    id: 10,
     title: "Blooger",
     description: "Responsive website with animations.",
-    techUsed: ["Javascript", "jQuery", "HTML", "CSS"],
+    techUsed: ["JavaScript", "jQuery", "HTML", "CSS"],
     categories: ["javascript"],
     image: blooger,
     link: "https://andrew-debug.github.io/Blooger-layout/",
   },
   {
-    id: 10,
+    id: 11,
     title: "Bankist",
     description: "JavaScript only project from JS course ",
-    techUsed: ["Javascript"],
+    techUsed: ["JavaScript"],
     categories: ["javascript"],
     image: bankist,
     link: "https://andrew-debug.github.io/bankist-project/",
   },
   {
-    id: 11,
+    id: 12,
     title: "Very first portfolio",
     description: "A bit of javascript and HTML with CSS. ",
-    techUsed: ["Javascript", "HTML", "CSS"],
+    techUsed: ["JavaScript", "HTML", "CSS"],
     categories: ["javascript"],
     image: pf1,
     link: "https://andrew-debug.github.io/portfoliov1/build/index.html",
   },
   {
-    id: 12,
+    id: 13,
     title: "Mojo",
     description: "HTML and CSS practising.",
     techUsed: ["HTML", "CSS"],
@@ -135,7 +145,7 @@ export default [
     link: "https://andrew-debug.github.io/Mojopractise/",
   },
   {
-    id: 13,
+    id: 14,
     title: "ActiveBox",
     description: "HTML and CSS practising.",
     techUsed: ["HTML", "CSS"],

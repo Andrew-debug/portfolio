@@ -126,7 +126,7 @@ export default function About({ setopeningContent, setframeAllContent }) {
           <Left>
             <h1>About me</h1>
             <p>
-              I am a 25 years old passionate
+              I am a 25 years old passionate{" "}
               <strong>Front-end Developer</strong> based in Kyiv, Ukraine who
               enjoys building web applications. Very positive and highly
               motivated person with over 2 years of experience in building
