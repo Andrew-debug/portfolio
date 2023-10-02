@@ -21,6 +21,7 @@ import reactRouter from "../assets/icons/react-router.svg";
 import redux from "../assets/icons/redux.svg";
 import vite from "../assets/icons/vitejs.svg";
 import vitest from "../assets/icons/vitest.svg";
+import nextauth from "../assets/icons/nextauth.png";
 
 const list = [
   { img: javaScript, techName: "JavaScript" },
@@ -36,6 +37,7 @@ const list = [
   { img: git, techName: "Git" },
   { img: reactRouter, techName: "react-router" },
   { img: graphql, techName: "GraphQL" },
+  { img: nextauth, techName: "NextAuth.js" },
   { img: styledComponents, techName: "styled-components" },
   { img: tailwind, techName: "Tailwind.css" },
   { img: sass, techName: "Sass" },
@@ -61,6 +63,7 @@ const ItemWrap = styled.div`
     width: 24px;
     height: 24px;
     margin-right: 5px;
+    object-fit: contain;
   }
   p {
     margin-right: 20px;

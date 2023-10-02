@@ -86,13 +86,12 @@ export default function Portfolio({ setopeningContent, setframeAllContent }) {
   const [filter, setfilter] = useState({
     all: true,
     react: false,
-    typescript: false,
-    javascript: false,
+    typeScript: false,
+    javaScript: false,
     "next.js": false,
-    "material-ui": false,
-    graphql: false,
+    redux: false,
+    graphQL: false,
   });
-
   const filtersOn = Object.keys(filter).filter((key) => filter[key] === true);
   const filteredData = data.filter(
     (item) =>
@@ -125,11 +124,11 @@ export default function Portfolio({ setopeningContent, setframeAllContent }) {
                         setfilter({
                           all: true,
                           react: false,
-                          typescript: false,
-                          javascript: false,
+                          typeScript: false,
+                          javaScript: false,
                           "next.js": false,
-                          "material-ui": false,
-                          graphql: false,
+                          redux: false,
+                          graphQL: false,
                         });
                       } else {
                         const next = {
