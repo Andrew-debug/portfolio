@@ -3,8 +3,6 @@ import activebox from "./portfolioImages/activebox.png";
 import mojo from "./portfolioImages/mojo.png";
 import pf1 from "./portfolioImages/pf1.png";
 import pf2 from "./portfolioImages/pf2.png";
-import pf3 from "./portfolioImages/pf3.png";
-import threejs from "./portfolioImages/threejs.png";
 import shoppingCart from "./portfolioImages/shopping-cart.png";
 import bankist from "./portfolioImages/bankist.png";
 import carRentShowcase from "./portfolioImages/car-rent-showcase.png";
@@ -79,24 +77,6 @@ export default [
   },
   {
     id: 8,
-    title: "Three.js",
-    description: "Three.js try-out. Practising 3D model implementation ",
-    techUsed: ["React", "Three.js", "Styled-components"],
-    categories: ["react", "javaScript"],
-    image: threejs,
-    link: "https://andrew-debug.github.io/three.js-testing/",
-  },
-  {
-    id: 9,
-    title: "Current portfolio",
-    description: "Responsive React portfolio",
-    techUsed: ["React", "Styled-components", "React Router", "Framer-motion"],
-    categories: ["react"],
-    image: pf3,
-    link: "https://andrew-debug.github.io/portfolio/",
-  },
-  {
-    id: 10,
     title: "Second portfolio",
     description: "Fully responsive multi page portfolio ",
     techUsed: ["JavaScript", "HTML", "CSS"],
@@ -105,7 +85,7 @@ export default [
     link: "https://andrew-debug.github.io/portfoliov2/build/index.html",
   },
   {
-    id: 11,
+    id: 9,
     title: "Blooger",
     description: "Responsive website with animations.",
     techUsed: ["JavaScript", "jQuery", "HTML", "CSS"],
@@ -114,7 +94,7 @@ export default [
     link: "https://andrew-debug.github.io/Blooger-layout/",
   },
   {
-    id: 12,
+    id: 10,
     title: "Bankist",
     description: "JavaScript only project from JS course ",
     techUsed: ["JavaScript"],
@@ -123,7 +103,7 @@ export default [
     link: "https://andrew-debug.github.io/bankist-project/",
   },
   {
-    id: 13,
+    id: 11,
     title: "Very first portfolio",
     description: "A bit of JavaScript and HTML with CSS. ",
     techUsed: ["JavaScript", "HTML", "CSS"],
@@ -132,7 +112,7 @@ export default [
     link: "https://andrew-debug.github.io/portfoliov1/build/index.html",
   },
   {
-    id: 14,
+    id: 12,
     title: "Mojo",
     description: "HTML and CSS practising.",
     techUsed: ["HTML", "CSS"],
@@ -141,7 +121,7 @@ export default [
     link: "https://andrew-debug.github.io/Mojopractise/",
   },
   {
-    id: 15,
+    id: 13,
     title: "ActiveBox",
     description: "HTML and CSS practising.",
     techUsed: ["HTML", "CSS"],
