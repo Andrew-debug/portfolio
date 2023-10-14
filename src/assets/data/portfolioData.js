@@ -11,6 +11,7 @@ import chesscom from "./portfolioImages/chesscom.png";
 import flexibble from "./portfolioImages/Flexibble.png";
 import mapty from "./portfolioImages/mapty.jpg";
 import appleStore from "./portfolioImages/apple-store.png";
+import treeDiagram from "./portfolioImages/tree-diagram.jpg";
 export default [
   {
     id: 1,
@@ -50,6 +51,15 @@ export default [
   },
   {
     id: 5,
+    title: "Node Tree diagram",
+    description: "No external libraries are used. Drag & Zoom",
+    techUsed: ["React", "TypeScript", "Redux", "Styled-components"],
+    categories: ["typeScript", "react"],
+    image: treeDiagram,
+    link: "https://andrew-debug.github.io/abyss-test/",
+  },
+  {
+    id: 6,
     title: "Tic-Tac-Toe",
     description: "Both single and multiplayer available",
     techUsed: ["React", "TypeScript", "Styled-components"],
@@ -58,7 +68,7 @@ export default [
     link: "https://andrew-debug.github.io/tictactoe/",
   },
   {
-    id: 6,
+    id: 7,
     title: "Clone of mapty",
     description: "Practising with map API",
     techUsed: ["JavaScript", "HTML", "CSS"],
@@ -67,7 +77,7 @@ export default [
     link: "https://andrew-debug.github.io/mapty/",
   },
   {
-    id: 7,
+    id: 8,
     title: "Shopping cart",
     description: "Responsive shooping cart with Material-UI",
     techUsed: ["React", "Material-UI"],
@@ -76,7 +86,7 @@ export default [
     link: "https://andrew-debug.github.io/shopping-cart/",
   },
   {
-    id: 8,
+    id: 9,
     title: "Second portfolio",
     description: "Fully responsive multi page portfolio ",
     techUsed: ["JavaScript", "HTML", "CSS"],
@@ -85,7 +95,7 @@ export default [
     link: "https://andrew-debug.github.io/portfoliov2/build/index.html",
   },
   {
-    id: 9,
+    id: 10,
     title: "Blooger",
     description: "Responsive website with animations.",
     techUsed: ["JavaScript", "jQuery", "HTML", "CSS"],
@@ -94,7 +104,7 @@ export default [
     link: "https://andrew-debug.github.io/Blooger-layout/",
   },
   {
-    id: 10,
+    id: 11,
     title: "Bankist",
     description: "JavaScript only project from JS course ",
     techUsed: ["JavaScript"],
@@ -103,7 +113,7 @@ export default [
     link: "https://andrew-debug.github.io/bankist-project/",
   },
   {
-    id: 11,
+    id: 12,
     title: "Very first portfolio",
     description: "A bit of JavaScript and HTML with CSS. ",
     techUsed: ["JavaScript", "HTML", "CSS"],
@@ -112,7 +122,7 @@ export default [
     link: "https://andrew-debug.github.io/portfoliov1/build/index.html",
   },
   {
-    id: 12,
+    id: 13,
     title: "Mojo",
     description: "HTML and CSS practising.",
     techUsed: ["HTML", "CSS"],
@@ -121,7 +131,7 @@ export default [
     link: "https://andrew-debug.github.io/Mojopractise/",
   },
   {
-    id: 13,
+    id: 14,
     title: "ActiveBox",
     description: "HTML and CSS practising.",
     techUsed: ["HTML", "CSS"],
