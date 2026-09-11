@@ -12,7 +12,17 @@ import flexibble from "./portfolioImages/Flexibble.png";
 import mapty from "./portfolioImages/mapty.jpg";
 import appleStore from "./portfolioImages/apple-store.png";
 import treeDiagram from "./portfolioImages/tree-diagram.jpg";
+import l2bosstracker from "./portfolioImages/l2bosstracker.png";
 export default [
+  {
+    id: 15,
+    title: "L2 Boss Tracker",
+    description: "Interactive Lineage 2 Raid Boss Map",
+    techUsed: ["Next.js", "React", "TypeScript"],
+    categories: ["typeScript", "next.js", "react"],
+    image: l2bosstracker,
+    link: "https://l2bosstracker.com/",
+  },
   {
     id: 1,
     title: "Apple Store ",
